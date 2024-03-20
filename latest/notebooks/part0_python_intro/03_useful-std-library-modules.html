@@ -112,7 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="solutions/07a_Theis-exercise-solution.html">07: Using functions to solve an equation– The Theis example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07b_VSCode.html">07b: VSCode Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="solutions/08_pandas.html">08: Working with tabular data in Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09_Geopandas.html">09: GeoPandas - DataFrames with geometry for GIS applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_a_Geopandas.html">09: GeoPandas - DataFrames with geometry for GIS applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="solutions/09_Geopandas__solutions.html">09: Geopandas exercise solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_Rasterio.html">10: Using Rasterio and Numpy to examine ice loss on Mt. Rainier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_xarray_mt_rainier_precip.html">11: Using Xarray to look at Daymet precipitation around Mt. Rainier</a></li>
@@ -259,9 +259,9 @@ PosixPath(&#39;.&#39;)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 03_useful-std-library-modules.ipynb
+09_b_Geopandas_ABQ.ipynb
 data
-09_Geopandas.ipynb
-09_Geopandas_ABQ.ipynb
+09_a_Geopandas.ipynb
 10_Rasterio.ipynb
 06b_matplotlib_animation.ipynb
 07b_VSCode.md
@@ -288,8 +288,8 @@ solutions
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 03_useful-std-library-modules.ipynb
-09_Geopandas.ipynb
-09_Geopandas_ABQ.ipynb
+09_b_Geopandas_ABQ.ipynb
+09_a_Geopandas.ipynb
 10_Rasterio.ipynb
 06b_matplotlib_animation.ipynb
 11_xarray_mt_rainier_precip.ipynb
@@ -315,15 +315,15 @@ solutions
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 ../part0_python_intro/03_useful-std-library-modules.ipynb
-../part0_python_intro/09_Geopandas.ipynb
-../part0_python_intro/09_Geopandas_ABQ.ipynb
+../part0_python_intro/09_b_Geopandas_ABQ.ipynb
+../part0_python_intro/09_a_Geopandas.ipynb
 ../part0_python_intro/10_Rasterio.ipynb
 ../part0_python_intro/06b_matplotlib_animation.ipynb
 ../part0_python_intro/11_xarray_mt_rainier_precip.ipynb
 ../part0_python_intro/05_numpy.ipynb
+../part1_flopy/10_modpath_particle_tracking-demo.ipynb
 ../part1_flopy/05-unstructured-grids.ipynb
 ../part1_flopy/08_Modflow-setup-demo.ipynb
-../part1_flopy/10_modpath-demo.ipynb
 ../part1_flopy/09-gwt-voronoi-demo.ipynb
 </pre></div></div>
 </div>
@@ -350,14 +350,14 @@ solutions
 [PosixPath(&#39;../part0_python_intro/03_useful-std-library-modules.ipynb&#39;),
  PosixPath(&#39;../part0_python_intro/05_numpy.ipynb&#39;),
  PosixPath(&#39;../part0_python_intro/06b_matplotlib_animation.ipynb&#39;),
- PosixPath(&#39;../part0_python_intro/09_Geopandas.ipynb&#39;),
- PosixPath(&#39;../part0_python_intro/09_Geopandas_ABQ.ipynb&#39;),
+ PosixPath(&#39;../part0_python_intro/09_a_Geopandas.ipynb&#39;),
+ PosixPath(&#39;../part0_python_intro/09_b_Geopandas_ABQ.ipynb&#39;),
  PosixPath(&#39;../part0_python_intro/10_Rasterio.ipynb&#39;),
  PosixPath(&#39;../part0_python_intro/11_xarray_mt_rainier_precip.ipynb&#39;),
  PosixPath(&#39;../part1_flopy/05-unstructured-grids.ipynb&#39;),
  PosixPath(&#39;../part1_flopy/08_Modflow-setup-demo.ipynb&#39;),
  PosixPath(&#39;../part1_flopy/09-gwt-voronoi-demo.ipynb&#39;),
- PosixPath(&#39;../part1_flopy/10_modpath-demo.ipynb&#39;)]
+ PosixPath(&#39;../part1_flopy/10_modpath_particle_tracking-demo.ipynb&#39;)]
 </pre></div></div>
 </div>
 <p><strong>Note:</strong> There is also a glob module in the standard python library that works directly with string paths</p>
@@ -379,14 +379,14 @@ solutions
 [&#39;../part0_python_intro/03_useful-std-library-modules.ipynb&#39;,
  &#39;../part0_python_intro/05_numpy.ipynb&#39;,
  &#39;../part0_python_intro/06b_matplotlib_animation.ipynb&#39;,
- &#39;../part0_python_intro/09_Geopandas.ipynb&#39;,
- &#39;../part0_python_intro/09_Geopandas_ABQ.ipynb&#39;,
+ &#39;../part0_python_intro/09_a_Geopandas.ipynb&#39;,
+ &#39;../part0_python_intro/09_b_Geopandas_ABQ.ipynb&#39;,
  &#39;../part0_python_intro/10_Rasterio.ipynb&#39;,
  &#39;../part0_python_intro/11_xarray_mt_rainier_precip.ipynb&#39;,
  &#39;../part1_flopy/05-unstructured-grids.ipynb&#39;,
  &#39;../part1_flopy/08_Modflow-setup-demo.ipynb&#39;,
  &#39;../part1_flopy/09-gwt-voronoi-demo.ipynb&#39;,
- &#39;../part1_flopy/10_modpath-demo.ipynb&#39;]
+ &#39;../part1_flopy/10_modpath_particle_tracking-demo.ipynb&#39;]
 </pre></div></div>
 </div>
 </section>
@@ -1009,7 +1009,7 @@ sys.version_info(major=3, minor=11, micro=8, releaselevel=&#39;final&#39;, seria
 <div class="highlight"><pre>
 [&#39;/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/ipykernel_launcher.py&#39;,
  &#39;-f&#39;,
- &#39;/tmp/tmpes1dcyq3.json&#39;,
+ &#39;/tmp/tmp8gtdz1k9.json&#39;,
  &#39;--HistoryManager.hist_file=:memory:&#39;]
 </pre></div></div>
 </div>
@@ -1180,8 +1180,8 @@ Switched back to:  /home/runner/work/python-for-hydrology/python-for-hydrology/d
  (&#39;../part0_python_intro&#39;,
   [&#39;data&#39;, &#39;solutions&#39;, &#39;another_subfolder&#39;],
   [&#39;03_useful-std-library-modules.ipynb&#39;,
-   &#39;09_Geopandas.ipynb&#39;,
-   &#39;09_Geopandas_ABQ.ipynb&#39;,
+   &#39;09_b_Geopandas_ABQ.ipynb&#39;,
+   &#39;09_a_Geopandas.ipynb&#39;,
    &#39;10_Rasterio.ipynb&#39;,
    &#39;06b_matplotlib_animation.ipynb&#39;,
    &#39;07b_VSCode.md&#39;,
@@ -1251,10 +1251,10 @@ Switched back to:  /home/runner/work/python-for-hydrology/python-for-hydrology/d
   [&#39;mycode.cpython-311.pyc&#39;]),
  (&#39;../part1_flopy&#39;,
   [&#39;data&#39;, &#39;data_project&#39;, &#39;solutions&#39;],
-  [&#39;basin.py&#39;,
+  [&#39;10_modpath_particle_tracking-demo.ipynb&#39;,
+   &#39;basin.py&#39;,
    &#39;05-unstructured-grids.ipynb&#39;,
    &#39;08_Modflow-setup-demo.ipynb&#39;,
-   &#39;10_modpath-demo.ipynb&#39;,
    &#39;09-gwt-voronoi-demo.ipynb&#39;]),
  (&#39;../part1_flopy/data&#39;,
   [&#39;depletion_results&#39;,
@@ -1563,8 +1563,8 @@ Switched back to:  /home/runner/work/python-for-hydrology/python-for-hydrology/d
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 ../part0_python_intro/03_useful-std-library-modules.ipynb
-../part0_python_intro/09_Geopandas.ipynb
-../part0_python_intro/09_Geopandas_ABQ.ipynb
+../part0_python_intro/09_b_Geopandas_ABQ.ipynb
+../part0_python_intro/09_a_Geopandas.ipynb
 ../part0_python_intro/10_Rasterio.ipynb
 ../part0_python_intro/06b_matplotlib_animation.ipynb
 ../part0_python_intro/11_xarray_mt_rainier_precip.ipynb
@@ -1578,9 +1578,9 @@ Switched back to:  /home/runner/work/python-for-hydrology/python-for-hydrology/d
 ../part0_python_intro/solutions/07a_Theis-exercise-solution.ipynb
 ../part0_python_intro/solutions/06_matplotlib__solution.ipynb
 ../part0_python_intro/solutions/05_numpy__solutions.ipynb
+../part1_flopy/10_modpath_particle_tracking-demo.ipynb
 ../part1_flopy/05-unstructured-grids.ipynb
 ../part1_flopy/08_Modflow-setup-demo.ipynb
-../part1_flopy/10_modpath-demo.ipynb
 ../part1_flopy/09-gwt-voronoi-demo.ipynb
 ../part1_flopy/solutions/06-Project-structured_completed.ipynb
 ../part1_flopy/solutions/06-Project-voronoi.ipynb
@@ -1605,14 +1605,14 @@ Switched back to:  /home/runner/work/python-for-hydrology/python-for-hydrology/d
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/save_state_daaa3e13-2088-4065-923c-5ba8f0fa5c04&#39;,
+environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/save_state_25937696-46c1-4c29-89e0-c8607bf76b4b&#39;,
         &#39;CONDA_PROMPT_MODIFIER&#39;: &#39;(pyclass-docs) &#39;,
         &#39;STATS_TRP&#39;: &#39;true&#39;,
         &#39;DOTNET_NOLOGO&#39;: &#39;1&#39;,
         &#39;DEPLOYMENT_BASEPATH&#39;: &#39;/opt/runner&#39;,
         &#39;USER&#39;: &#39;runner&#39;,
         &#39;CI&#39;: &#39;true&#39;,
-        &#39;GITHUB_ENV&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/set_env_daaa3e13-2088-4065-923c-5ba8f0fa5c04&#39;,
+        &#39;GITHUB_ENV&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/set_env_25937696-46c1-4c29-89e0-c8607bf76b4b&#39;,
         &#39;PIPX_HOME&#39;: &#39;/opt/pipx&#39;,
         &#39;RUNNER_ENVIRONMENT&#39;: &#39;github-hosted&#39;,
         &#39;JAVA_HOME_8_X64&#39;: &#39;/usr/lib/jvm/temurin-8-jdk-amd64&#39;,
@@ -1635,7 +1635,7 @@ environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_comman
         &#39;GITHUB_REPOSITORY_OWNER_ID&#39;: &#39;1110827&#39;,
         &#39;AZURE_EXTENSION_DIR&#39;: &#39;/opt/az/azcliextensions&#39;,
         &#39;MAKEFLAGS&#39;: &#39;w&#39;,
-        &#39;SYSTEMD_EXEC_PID&#39;: &#39;600&#39;,
+        &#39;SYSTEMD_EXEC_PID&#39;: &#39;598&#39;,
         &#39;GITHUB_GRAPHQL_URL&#39;: &#39;https://api.github.com/graphql&#39;,
         &#39;NVM_DIR&#39;: &#39;/home/runner/.nvm&#39;,
         &#39;GOROOT_1_20_X64&#39;: &#39;/opt/hostedtoolcache/go/1.20.14/x64&#39;,
@@ -1650,14 +1650,14 @@ environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_comman
         &#39;RUNNER_USER&#39;: &#39;runner&#39;,
         &#39;CHROMEWEBDRIVER&#39;: &#39;/usr/local/share/chromedriver-linux64&#39;,
         &#39;_&#39;: &#39;/usr/bin/make&#39;,
-        &#39;JOURNAL_STREAM&#39;: &#39;8:18315&#39;,
+        &#39;JOURNAL_STREAM&#39;: &#39;8:19310&#39;,
         &#39;GITHUB_WORKFLOW&#39;: &#39;Publish Docs&#39;,
         &#39;STATS_V3PS&#39;: &#39;true&#39;,
         &#39;CONDARC&#39;: &#39;/home/runner/work/_temp/setup-micromamba/.condarc&#39;,
         &#39;STATS_D&#39;: &#39;false&#39;,
-        &#39;GITHUB_RUN_ID&#39;: &#39;8363136636&#39;,
+        &#39;GITHUB_RUN_ID&#39;: &#39;8364530367&#39;,
         &#39;ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE&#39;: &#39;/opt/actionarchivecache&#39;,
-        &#39;GITHUB_WORKFLOW_SHA&#39;: &#39;49f1703f8e44e9e2edb8fd8acf57b237ae61d534&#39;,
+        &#39;GITHUB_WORKFLOW_SHA&#39;: &#39;896abe223d96a7b46a01519053f69b0364efafec&#39;,
         &#39;MODFLOW_BIN_PATH&#39;: &#39;/home/runner/.local/bin&#39;,
         &#39;BOOTSTRAP_HASKELL_NONINTERACTIVE&#39;: &#39;1&#39;,
         &#39;GITHUB_REF_TYPE&#39;: &#39;branch&#39;,
@@ -1668,14 +1668,14 @@ environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_comman
         &#39;PERFLOG_LOCATION_SETTING&#39;: &#39;RUNNER_PERFLOG&#39;,
         &#39;GITHUB_WORKFLOW_REF&#39;: &#39;mnfienen/python-for-hydrology/.github/workflows/build_docs.yaml@refs/heads/main&#39;,
         &#39;PATH&#39;: &#39;/home/runner/micromamba/envs/pyclass-docs/bin:/home/runner/micromamba/condabin:/home/runner/.local/bin:/home/runner/work/_temp/setup-micromamba:/home/runner/micromamba-bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/runner/.dotnet/tools&#39;,
-        &#39;RUNNER_TRACKING_ID&#39;: &#39;github_cccfb627-fe0f-4bf9-8b93-993bbffeabe5&#39;,
+        &#39;RUNNER_TRACKING_ID&#39;: &#39;github_0aef3e32-bb41-4410-bf39-db2067c32aec&#39;,
         &#39;DOTNET_MULTILEVEL_LOOKUP&#39;: &#39;0&#39;,
-        &#39;INVOCATION_ID&#39;: &#39;3d6270df07914b9dac873903d467a55b&#39;,
+        &#39;INVOCATION_ID&#39;: &#39;d22cd2024bf340fba590bb72356e462b&#39;,
         &#39;PROJ_NETWORK&#39;: &#39;ON&#39;,
         &#39;RUNNER_TOOL_CACHE&#39;: &#39;/opt/hostedtoolcache&#39;,
         &#39;ANT_HOME&#39;: &#39;/usr/share/ant&#39;,
         &#39;GITHUB_TRIGGERING_ACTOR&#39;: &#39;mnfienen&#39;,
-        &#39;GITHUB_RUN_NUMBER&#39;: &#39;13&#39;,
+        &#39;GITHUB_RUN_NUMBER&#39;: &#39;20&#39;,
         &#39;RUNNER_ARCH&#39;: &#39;X64&#39;,
         &#39;XDG_RUNTIME_DIR&#39;: &#39;/run/user/1001&#39;,
         &#39;AGENT_TOOLSDIRECTORY&#39;: &#39;/opt/hostedtoolcache&#39;,
@@ -1685,9 +1685,8 @@ environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_comman
         &#39;MAMBA_ROOT_PREFIX&#39;: &#39;/home/runner/micromamba&#39;,
         &#39;LANG&#39;: &#39;C.UTF-8&#39;,
         &#39;VCPKG_INSTALLATION_ROOT&#39;: &#39;/usr/local/share/vcpkg&#39;,
-        &#39;RUNNER_NAME&#39;: &#39;GitHub Actions 10&#39;,
+        &#39;RUNNER_NAME&#39;: &#39;GitHub Actions 4&#39;,
         &#39;GITHUB_REF_NAME&#39;: &#39;main&#39;,
-        &#39;STATS_D_D&#39;: &#39;true&#39;,
         &#39;XDG_CONFIG_HOME&#39;: &#39;/home/runner/.config&#39;,
         &#39;CONDA&#39;: &#39;/usr/share/miniconda&#39;,
         &#39;STATS_VMD&#39;: &#39;true&#39;,
@@ -1707,7 +1706,7 @@ environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_comman
         &#39;GITHUB_JOB&#39;: &#39;docs&#39;,
         &#39;CONDA_DEFAULT_ENV&#39;: &#39;pyclass-docs&#39;,
         &#39;GITHUB_WORKSPACE&#39;: &#39;/home/runner/work/python-for-hydrology/python-for-hydrology&#39;,
-        &#39;GITHUB_SHA&#39;: &#39;49f1703f8e44e9e2edb8fd8acf57b237ae61d534&#39;,
+        &#39;GITHUB_SHA&#39;: &#39;896abe223d96a7b46a01519053f69b0364efafec&#39;,
         &#39;GITHUB_RUN_ATTEMPT&#39;: &#39;1&#39;,
         &#39;GITHUB_REF&#39;: &#39;refs/heads/main&#39;,
         &#39;ANDROID_SDK_ROOT&#39;: &#39;/usr/local/lib/android/sdk&#39;,
@@ -1718,7 +1717,7 @@ environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_comman
         &#39;PWD&#39;: &#39;/home/runner/work/python-for-hydrology/python-for-hydrology/docs&#39;,
         &#39;RUNNER_WORKSPACE&#39;: &#39;/home/runner/work/python-for-hydrology&#39;,
         &#39;GITHUB_ACTOR_ID&#39;: &#39;1110827&#39;,
-        &#39;GITHUB_PATH&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/add_path_daaa3e13-2088-4065-923c-5ba8f0fa5c04&#39;,
+        &#39;GITHUB_PATH&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/add_path_25937696-46c1-4c29-89e0-c8607bf76b4b&#39;,
         &#39;GHCUP_INSTALL_BASE_PREFIX&#39;: &#39;/usr/local&#39;,
         &#39;GITHUB_EVENT_NAME&#39;: &#39;push&#39;,
         &#39;XDG_DATA_DIRS&#39;: &#39;/usr/local/share:/usr/share:/var/lib/snapd/desktop&#39;,
@@ -1729,7 +1728,7 @@ environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_comman
         &#39;GECKOWEBDRIVER&#39;: &#39;/usr/local/share/gecko_driver&#39;,
         &#39;NVM_CD_FLAGS&#39;: &#39;&#39;,
         &#39;HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS&#39;: &#39;3650&#39;,
-        &#39;GITHUB_OUTPUT&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/set_output_daaa3e13-2088-4065-923c-5ba8f0fa5c04&#39;,
+        &#39;GITHUB_OUTPUT&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/set_output_25937696-46c1-4c29-89e0-c8607bf76b4b&#39;,
         &#39;HOMEBREW_NO_AUTO_UPDATE&#39;: &#39;1&#39;,
         &#39;EDGEWEBDRIVER&#39;: &#39;/usr/local/share/edge_driver&#39;,
         &#39;STATS_EXT&#39;: &#39;true&#39;,
@@ -1743,9 +1742,9 @@ environ{&#39;GITHUB_STATE&#39;: &#39;/home/runner/work/_temp/_runner_file_comman
         &#39;STATS_EXTP&#39;: &#39;https://provjobdsettingscdn.blob.core.windows.net/settings/provjobdsettings-0.5.154/provjobd.data&#39;,
         &#39;ANDROID_NDK_HOME&#39;: &#39;/usr/local/lib/android/sdk/ndk/25.2.9519653&#39;,
         &#39;GDAL_DATA&#39;: &#39;/home/runner/micromamba/envs/pyclass-docs/share/gdal&#39;,
-        &#39;GITHUB_STEP_SUMMARY&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/step_summary_daaa3e13-2088-4065-923c-5ba8f0fa5c04&#39;,
+        &#39;GITHUB_STEP_SUMMARY&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/step_summary_25937696-46c1-4c29-89e0-c8607bf76b4b&#39;,
         &#39;DOCUTILSCONFIG&#39;: &#39;/home/runner/work/python-for-hydrology/python-for-hydrology/docs/source/docutils.conf&#39;,
-        &#39;JPY_PARENT_PID&#39;: &#39;4227&#39;,
+        &#39;JPY_PARENT_PID&#39;: &#39;4274&#39;,
         &#39;PYDEVD_USE_FRAME_EVAL&#39;: &#39;NO&#39;,
         &#39;TERM&#39;: &#39;xterm-color&#39;,
         &#39;CLICOLOR&#39;: &#39;1&#39;,
@@ -1846,8 +1845,8 @@ run(*popenargs, input=None, capture_output=False, timeout=None, check=False, **k
 05_numpy.ipynb
 06b_matplotlib_animation.ipynb
 07b_VSCode.md
-09_Geopandas.ipynb
-09_Geopandas_ABQ.ipynb
+09_a_Geopandas.ipynb
+09_b_Geopandas_ABQ.ipynb
 10_Rasterio.ipynb
 11_xarray_mt_rainier_precip.ipynb
 another_subfolder
@@ -1893,8 +1892,8 @@ CompletedProcess(args=[&#39;ls&#39;, &#39;-l&#39;], returncode=0)
 05_numpy.ipynb                       11_xarray_mt_rainier_precip.ipynb
 06b_matplotlib_animation.ipynb       another_subfolder
 07b_VSCode.md                        data
-09_Geopandas.ipynb                   solutions
-09_Geopandas_ABQ.ipynb
+09_a_Geopandas.ipynb                 solutions
+09_b_Geopandas_ABQ.ipynb
 CompletedProcess(args=[&#39;dir&#39;], returncode=0)
 </pre></div></div>
 </div>
