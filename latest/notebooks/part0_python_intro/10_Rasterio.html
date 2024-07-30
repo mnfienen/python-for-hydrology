@@ -17,7 +17,7 @@
   <![endif]-->
   
         <script src="../../_static/documentation_options.js?v=feab032e"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -616,7 +616,7 @@ masked_array(
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(433, 367)
+(np.int64(433), np.int64(367))
 </pre></div></div>
 </div>
 <p>The corrected summit elevations being a little under 14,411 is a little unsatisfying, but one of the costs of downsampling the DEMs to a 30 m resolution to conserve space. At any rate, since we are interested in differences, the geoid offset doesn’t matter for the remainder of our analysis.</p>
@@ -635,7 +635,7 @@ masked_array(
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-14085.372487367187
+np.float32(14085.793)
 </pre></div></div>
 </div>
 </section>
@@ -789,7 +789,7 @@ masked_array(
       <td>0</td>
       <td>9</td>
       <td>Williwakas Glacier WA</td>
-      <td>POLYGON ((-121.70642 46.80792, -121.70650 46.8...</td>
+      <td>POLYGON ((-121.70642 46.80792, -121.7065 46.80...</td>
     </tr>
     <tr>
       <th>1</th>
@@ -885,7 +885,7 @@ masked_array(
       <td>0</td>
       <td>9</td>
       <td>WA</td>
-      <td>POLYGON ((-121.69777 46.80903, -121.69760 46.8...</td>
+      <td>POLYGON ((-121.69777 46.80903, -121.6976 46.80...</td>
     </tr>
   </tbody>
 </table>
@@ -1069,7 +1069,7 @@ masked_array(
       <td>Carbon Glacier WA</td>
       <td>POLYGON ((591944.474 5199551.542, 591934.849 5...</td>
       <td>24</td>
-      <td>-0.112739</td>
+      <td>-0.112824</td>
     </tr>
     <tr>
       <th>111</th>
@@ -1093,7 +1093,7 @@ masked_array(
       <td>Nisqually Glacier WA</td>
       <td>POLYGON ((595661.797 5185442.136, 595671.895 5...</td>
       <td>112</td>
-      <td>-0.071485</td>
+      <td>-0.071836</td>
     </tr>
     <tr>
       <th>26</th>
@@ -1115,9 +1115,9 @@ masked_array(
       <td>0</td>
       <td>9</td>
       <td>Winthrop Glacier WA</td>
-      <td>POLYGON ((596567.284 5191536.100, 596500.097 5...</td>
+      <td>POLYGON ((596567.284 5191536.1, 596500.097 519...</td>
       <td>27</td>
-      <td>-0.068688</td>
+      <td>-0.069640</td>
     </tr>
     <tr>
       <th>64</th>
@@ -1139,9 +1139,9 @@ masked_array(
       <td>0</td>
       <td>1</td>
       <td>Emmons Glacier WA</td>
-      <td>POLYGON ((600717.130 5192154.864, 600689.098 5...</td>
+      <td>POLYGON ((600717.13 5192154.864, 600689.098 51...</td>
       <td>65</td>
-      <td>-0.063296</td>
+      <td>-0.065486</td>
     </tr>
     <tr>
       <th>103</th>
@@ -1163,9 +1163,9 @@ masked_array(
       <td>0</td>
       <td>9</td>
       <td>Puyallup Glacier WA</td>
-      <td>POLYGON ((590132.877 5189587.640, 590162.377 5...</td>
+      <td>POLYGON ((590132.877 5189587.64, 590162.377 51...</td>
       <td>104</td>
-      <td>-0.050316</td>
+      <td>-0.049973</td>
     </tr>
   </tbody>
 </table>
@@ -1265,7 +1265,7 @@ masked_array(
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.colorbar.Colorbar at 0x7fef799740d0&gt;
+&lt;matplotlib.colorbar.Colorbar at 0x7effcc150e50&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1562,255 +1562,241 @@ gen_zonal_stats(vectors, raster, layer=0, band=1, nodata=None, affine=None, stat
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
-  warnings.warn(
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
+/home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
+  warnings.warn(
 /home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
   warnings.warn(
 /home/runner/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/rasterstats/io.py:345: UserWarning: Setting masked to True because dataset mask has been detected
@@ -1933,16 +1919,16 @@ gen_zonal_stats(vectors, raster, layer=0, band=1, nodata=None, affine=None, stat
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[{&#39;mean&#39;: -14.117549377324467},
- {&#39;mean&#39;: -16.117656757305195},
- {&#39;mean&#39;: -7.478659358157766},
- {&#39;mean&#39;: -5.978782118719715},
- {&#39;mean&#39;: -12.5661885044392},
- {&#39;mean&#39;: -6.954003338481105},
- {&#39;mean&#39;: -10.34552574735116},
- {&#39;mean&#39;: -7.988397391341353},
- {&#39;mean&#39;: -9.325866244411326},
- {&#39;mean&#39;: -14.675119634570766}]
+[{&#39;mean&#39;: -14.126690331304935},
+ {&#39;mean&#39;: -16.196862951501622},
+ {&#39;mean&#39;: -7.582302639637432},
+ {&#39;mean&#39;: -6.186180868474749},
+ {&#39;mean&#39;: -12.480500358226568},
+ {&#39;mean&#39;: -6.864627430050872},
+ {&#39;mean&#39;: -10.58214457460898},
+ {&#39;mean&#39;: -8.181843650703586},
+ {&#39;mean&#39;: -9.408220589605067},
+ {&#39;mean&#39;: -14.84462573412123}]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2029,8 +2015,8 @@ gen_zonal_stats(vectors, raster, layer=0, band=1, nodata=None, affine=None, stat
       <td>WA</td>
       <td>POLYGON ((605930.559 5189945.894, 605935.655 5...</td>
       <td>95</td>
-      <td>-0.001379</td>
-      <td>-61.278115</td>
+      <td>-0.001380</td>
+      <td>-61.327578</td>
     </tr>
     <tr>
       <th>111</th>
@@ -2053,8 +2039,8 @@ gen_zonal_stats(vectors, raster, layer=0, band=1, nodata=None, affine=None, stat
       <td>Nisqually Glacier WA</td>
       <td>POLYGON ((595661.797 5185442.136, 595671.895 5...</td>
       <td>112</td>
-      <td>-0.071485</td>
-      <td>-16.117657</td>
+      <td>-0.071836</td>
+      <td>-16.196863</td>
     </tr>
     <tr>
       <th>87</th>
@@ -2077,8 +2063,32 @@ gen_zonal_stats(vectors, raster, layer=0, band=1, nodata=None, affine=None, stat
       <td>WA</td>
       <td>POLYGON ((588067.776 5190318.647, 588049.276 5...</td>
       <td>88</td>
-      <td>-0.001289</td>
-      <td>-15.079111</td>
+      <td>-0.001280</td>
+      <td>-14.974627</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>RGI60-02.18818</td>
+      <td>G238252E46825N</td>
+      <td>19709999</td>
+      <td>19949999</td>
+      <td>-121.74768</td>
+      <td>46.82481</td>
+      <td>2</td>
+      <td>4</td>
+      <td>1.551</td>
+      <td>2081</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>Wilson Glacier WA</td>
+      <td>POLYGON ((594772.409 5186608.63, 594809.347 51...</td>
+      <td>20</td>
+      <td>-0.023033</td>
+      <td>-14.844626</td>
     </tr>
     <tr>
       <th>109</th>
@@ -2101,32 +2111,8 @@ gen_zonal_stats(vectors, raster, layer=0, band=1, nodata=None, affine=None, stat
       <td>Sarvant Glaciers WA</td>
       <td>POLYGON ((605395.071 5190219.959, 605402.479 5...</td>
       <td>110</td>
-      <td>-0.005882</td>
-      <td>-14.686657</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>RGI60-02.18818</td>
-      <td>G238252E46825N</td>
-      <td>19709999</td>
-      <td>19949999</td>
-      <td>-121.74768</td>
-      <td>46.82481</td>
-      <td>2</td>
-      <td>4</td>
-      <td>1.551</td>
-      <td>2081</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>9</td>
-      <td>Wilson Glacier WA</td>
-      <td>POLYGON ((594772.409 5186608.630, 594809.347 5...</td>
-      <td>20</td>
-      <td>-0.022770</td>
-      <td>-14.675120</td>
+      <td>-0.005892</td>
+      <td>-14.710493</td>
     </tr>
   </tbody>
 </table>
@@ -2166,7 +2152,7 @@ gen_zonal_stats(vectors, raster, layer=0, band=1, nodata=None, affine=None, stat
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022-2024, USGS Python for Hydrology instructors.
-      <span class="lastupdated">Last updated on Apr 02, 2024.
+      <span class="lastupdated">Last updated on Jul 30, 2024.
       </span></p>
   </div>
 
