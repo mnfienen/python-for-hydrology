@@ -14,6 +14,8 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../../_static/documentation_options.js?v=feab032e"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -124,7 +126,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../09_a_Geopandas.html">09: GeoPandas - DataFrames with geometry for GIS applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="09_Geopandas__solutions.html">09: Geopandas exercise solutions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../10_Rasterio.html">10: Using Rasterio and Numpy to examine ice loss on Mt. Rainier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10a_Rasterio_intro.html">10a: Introduction to Rasterio for working with raster data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10b_Rasterio_advanced.html">10b: Using Rasterio and Numpy to examine ice loss on Mt. Rainier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../11_xarray_mt_rainier_precip.html">11: Using Xarray to look at Daymet precipitation around Mt. Rainier</a></li>
 </ul>
 </li>
@@ -167,10 +170,10 @@
            <div itemprop="articleBody">
              
   <section id="08:-Working-with-tabular-data-in-Pandas">
-<h1>08: Working with tabular data in Pandas<a class="headerlink" href="#08:-Working-with-tabular-data-in-Pandas" title="Link to this heading">¶</a></h1>
-<p><img alt="ab3c00e5c3bf4ee9bc3fd28113a2d46e" src="../../../_images/panda.jpg" /></p>
+<h1>08: Working with tabular data in Pandas<a class="headerlink" href="#08:-Working-with-tabular-data-in-Pandas" title="Link to this heading"></a></h1>
+<p><img alt="353c67bc06a2495bac4c862ebe710c96" src="../../../_images/panda.jpg" /></p>
 <section id="Not-that-type-of-Panda----Python's-Pandas-package">
-<h2>Not that type of Panda – Python’s Pandas package<a class="headerlink" href="#Not-that-type-of-Panda----Python's-Pandas-package" title="Link to this heading">¶</a></h2>
+<h2>Not that type of Panda – Python’s Pandas package<a class="headerlink" href="#Not-that-type-of-Panda----Python's-Pandas-package" title="Link to this heading"></a></h2>
 <p>Pandas is a powerful, flexible and easy to use open source data analysis and manipulation tool. Pandas is commonly used for operations that would normally be done in a spreadsheet environment and includes powerful data analysis and manipulation tools.</p>
 <p>Let’s begin by importing the libraries and setting our data path</p>
 <div class="nbinput nblast docutils container">
@@ -193,7 +196,7 @@
 </div>
 </section>
 <section id="Get-site-information-data-for-part-of-the-Russian-River-near-Guerneville,-CA-from-NWIS">
-<h2>Get site information data for part of the Russian River near Guerneville, CA from NWIS<a class="headerlink" href="#Get-site-information-data-for-part-of-the-Russian-River-near-Guerneville,-CA-from-NWIS" title="Link to this heading">¶</a></h2>
+<h2>Get site information data for part of the Russian River near Guerneville, CA from NWIS<a class="headerlink" href="#Get-site-information-data-for-part-of-the-Russian-River-near-Guerneville,-CA-from-NWIS" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -391,7 +394,7 @@
 <p>The data returned to us from our NWIS query <code class="docutils literal notranslate"><span class="pre">info</span></code> was returned to us as pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. We’ll be working with this to start learning about the basics of pandas.</p>
 </section>
 <section id="Viewing-data-in-pandas">
-<h2>Viewing data in pandas<a class="headerlink" href="#Viewing-data-in-pandas" title="Link to this heading">¶</a></h2>
+<h2>Viewing data in pandas<a class="headerlink" href="#Viewing-data-in-pandas" title="Link to this heading"></a></h2>
 <p>Pandas has built in methods to inspect <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects. We’ll look at a few handy methods:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.head()</span></code>: inspect the first few rows of data</p></li>
@@ -1053,7 +1056,7 @@ Index([&#39;agency_cd&#39;, &#39;site_no&#39;, &#39;station_nm&#39;, &#39;site_t
 </div>
 </section>
 <section id="Getting-data-from-a-pandas-dataframe">
-<h2>Getting data from a pandas dataframe<a class="headerlink" href="#Getting-data-from-a-pandas-dataframe" title="Link to this heading">¶</a></h2>
+<h2>Getting data from a pandas dataframe<a class="headerlink" href="#Getting-data-from-a-pandas-dataframe" title="Link to this heading"></a></h2>
 <p>There are multiple methods to get data out of a pandas dataframe as either a “series”, numpy array, or a list</p>
 <p>Let’s start by getting data as a series using a few methods</p>
 <div class="nbinput docutils container">
@@ -1182,7 +1185,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </pre></div></div>
 </div>
 <section id="Selection-by-position">
-<h3>Selection by position<a class="headerlink" href="#Selection-by-position" title="Link to this heading">¶</a></h3>
+<h3>Selection by position<a class="headerlink" href="#Selection-by-position" title="Link to this heading"></a></h3>
 <p>We can get data by position in the dataframe using the <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> attribute</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -1239,7 +1242,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Selection-by-label">
-<h3>Selection by label<a class="headerlink" href="#Selection-by-label" title="Link to this heading">¶</a></h3>
+<h3>Selection by label<a class="headerlink" href="#Selection-by-label" title="Link to this heading"></a></h3>
 <p>Pandas allows the user to get data from the dataframe by index and column labels</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -1308,7 +1311,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Boolean-indexing">
-<h3>Boolean indexing<a class="headerlink" href="#Boolean-indexing" title="Link to this heading">¶</a></h3>
+<h3>Boolean indexing<a class="headerlink" href="#Boolean-indexing" title="Link to this heading"></a></h3>
 <p>pandas dataframes supports boolean indexing that allows a user to create a new dataframe with only the data that meets a boolean condition defined by the user.</p>
 <p>Let’s get a dataframe of only groundwater sites from the <code class="docutils literal notranslate"><span class="pre">info</span></code> dataframe</p>
 <div class="nbinput docutils container">
@@ -1638,7 +1641,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Reading-and-writing-data-to-.csv-files">
-<h3>Reading and writing data to <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files<a class="headerlink" href="#Reading-and-writing-data-to-.csv-files" title="Link to this heading">¶</a></h3>
+<h3>Reading and writing data to <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files<a class="headerlink" href="#Reading-and-writing-data-to-.csv-files" title="Link to this heading"></a></h3>
 <p>Pandas has support to both read and write many types of files. For this example we are focusing on <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files. For information on other file types that are supported see the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html#importing-and-exporting-data">ten minutes to pandas</a> tutorial documentation</p>
 <p>For this part we’ll write a new <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file of the groundwater sites that we found in NWIS using <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> has a bunch of handy options for writing to file. For this example, I’m going to drop the index column while writing by passing <code class="docutils literal notranslate"><span class="pre">index=False</span></code></p>
@@ -1980,7 +1983,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </section>
 </section>
 <section id="Class-exercise-1">
-<h2>Class exercise 1<a class="headerlink" href="#Class-exercise-1" title="Link to this heading">¶</a></h2>
+<h2>Class exercise 1<a class="headerlink" href="#Class-exercise-1" title="Link to this heading"></a></h2>
 <p>Using the methods presented in this notebook create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> of surface water sites from the <code class="docutils literal notranslate"><span class="pre">info</span></code> dataframe, write it to a csv file named <code class="docutils literal notranslate"><span class="pre">&quot;RussianRiverSWsites.csv&quot;</span></code>, and read it back in as a new <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -2169,7 +2172,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Get-timeseries-data-from-NWIS-for-surface-water-sites">
-<h2>Get timeseries data from NWIS for surface water sites<a class="headerlink" href="#Get-timeseries-data-from-NWIS-for-surface-water-sites" title="Link to this heading">¶</a></h2>
+<h2>Get timeseries data from NWIS for surface water sites<a class="headerlink" href="#Get-timeseries-data-from-NWIS-for-surface-water-sites" title="Link to this heading"></a></h2>
 <p>Now to start working with stream gage data from NWIS. We’re going to send all surface water sites to NWIS and get only sites with daily discharge measurements.</p>
 <p>(<a class="reference external" href="https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&amp;site_no=11467002">11467002</a>)</p>
 <div class="nbinput docutils container">
@@ -2266,7 +2269,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 <p>Awesome! There are two gages in this study area that have daily discharge data!</p>
 <section id="Inspect-the-data-using-.plot()">
-<h3>Inspect the data using <code class="docutils literal notranslate"><span class="pre">.plot()</span></code><a class="headerlink" href="#Inspect-the-data-using-.plot()" title="Link to this heading">¶</a></h3>
+<h3>Inspect the data using <code class="docutils literal notranslate"><span class="pre">.plot()</span></code><a class="headerlink" href="#Inspect-the-data-using-.plot()" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -2286,7 +2289,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Updating-column-names">
-<h3>Updating column names<a class="headerlink" href="#Updating-column-names" title="Link to this heading">¶</a></h3>
+<h3>Updating column names<a class="headerlink" href="#Updating-column-names" title="Link to this heading"></a></h3>
 <p>Let’s update column names for these gages based on their locations instead of their USGS gage id. First we’ll get name information from the <code class="docutils literal notranslate"><span class="pre">info</span></code> class and then we’ll use the station name information to remap the column names.</p>
 <p>the <code class="docutils literal notranslate"><span class="pre">rename()</span></code> method accepts a dictionary that is formatted <code class="docutils literal notranslate"><span class="pre">{current_col_name:</span> <span class="pre">new_col_name}</span></code></p>
 <div class="nbinput docutils container">
@@ -2435,7 +2438,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Adding-a-new-column-of-data-to-the-dataframe">
-<h3>Adding a new column of data to the dataframe<a class="headerlink" href="#Adding-a-new-column-of-data-to-the-dataframe" title="Link to this heading">¶</a></h3>
+<h3>Adding a new column of data to the dataframe<a class="headerlink" href="#Adding-a-new-column-of-data-to-the-dataframe" title="Link to this heading"></a></h3>
 <p>Adding new columns of data is relatively simple in pandas. The call signature is similar to a dictionary where df[“key”] = “some_array_of_values”</p>
 <p>Let’s add a year column (water year) to the dataframe by getting the year from the index and adjusting it using <code class="docutils literal notranslate"><span class="pre">np.where()</span></code></p>
 <div class="nbinput nblast docutils container">
@@ -2448,13 +2451,13 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Manipulating-data">
-<h3>Manipulating data<a class="headerlink" href="#Manipulating-data" title="Link to this heading">¶</a></h3>
+<h3>Manipulating data<a class="headerlink" href="#Manipulating-data" title="Link to this heading"></a></h3>
 <p>Columns in a pandas dataframe can be manipulated similarly to working with a dictionary of numpy arrays. The discharge data units are <span class="math notranslate nohighlight">\(\frac{ft^3}{s}\)</span>, let’s accumulate this to daily discharge in <span class="math notranslate nohighlight">\(\frac {ft^3}{d}\)</span>.</p>
 <p>The conversion for this is:</p>
 </section>
 </section>
 <section id="$-\frac{1-ft^3}{s}-\times-`:nbsphinx-math:frac{60s}{min}`-\times-`:nbsphinx-math:frac{60min}{hour}`-\times-`:nbsphinx-math:frac{24hours}{day}`-\rightarrow-`:nbsphinx-math:frac{ft^3}{day}`-$">
-<h2>$ <span class="math">\frac{1 ft^3}{s}</span> <span class="math">\times `:nbsphinx-math:</span>frac{60s}{min}` <span class="math">\times `:nbsphinx-math:</span>frac{60min}{hour}` <span class="math">\times `:nbsphinx-math:</span>frac{24hours}{day}` <span class="math">\rightarrow `:nbsphinx-math:</span>frac{ft^3}{day}` $<a class="headerlink" href="#$-\frac{1-ft^3}{s}-\times-`:nbsphinx-math:frac{60s}{min}`-\times-`:nbsphinx-math:frac{60min}{hour}`-\times-`:nbsphinx-math:frac{24hours}{day}`-\rightarrow-`:nbsphinx-math:frac{ft^3}{day}`-$" title="Link to this heading">¶</a></h2>
+<h2>$ <span class="math">\frac{1 ft^3}{s}</span> <span class="math">\times `:nbsphinx-math:</span>frac{60s}{min}` <span class="math">\times `:nbsphinx-math:</span>frac{60min}{hour}` <span class="math">\times `:nbsphinx-math:</span>frac{24hours}{day}` <span class="math">\rightarrow `:nbsphinx-math:</span>frac{ft^3}{day}` $<a class="headerlink" href="#$-\frac{1-ft^3}{s}-\times-`:nbsphinx-math:frac{60s}{min}`-\times-`:nbsphinx-math:frac{60min}{hour}`-\times-`:nbsphinx-math:frac{24hours}{day}`-\rightarrow-`:nbsphinx-math:frac{ft^3}{day}`-$" title="Link to this heading"></a></h2>
 <p>and then convert that to acre-feet (1 acre-ft = 43559.9)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -2595,7 +2598,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Class-exercise-2:">
-<h2>Class exercise 2:<a class="headerlink" href="#Class-exercise-2:" title="Link to this heading">¶</a></h2>
+<h2>Class exercise 2:<a class="headerlink" href="#Class-exercise-2:" title="Link to this heading"></a></h2>
 <p>Using the methods described in the notebook. Convert the discharge for <code class="docutils literal notranslate"><span class="pre">&quot;austin_c&quot;</span></code> from <span class="math notranslate nohighlight">\(\frac{m^3}{s}\)</span> acre-ft by adding two additional fields to <code class="docutils literal notranslate"><span class="pre">df2</span></code> named <code class="docutils literal notranslate"><span class="pre">&quot;austin_c_cfs&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;austin_c_af&quot;</span></code>.</p>
 <p>After these two fields have been added to df2 use boolean indexing to create a new dataframe from 2015 through 2020. Finally plot the discharge data (in acre-ft) for “austin_cr”.</p>
 <p><strong>bonus exercise</strong> try to plot both <code class="docutils literal notranslate"><span class="pre">&quot;russian_r_af&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;austin_c_af&quot;</span></code> on the same plot</p>
@@ -2641,7 +2644,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </div>
 <section id="groupby:-grouping-data-and-performing-mathematical-operations-on-it">
-<h3>groupby: grouping data and performing mathematical operations on it<a class="headerlink" href="#groupby:-grouping-data-and-performing-mathematical-operations-on-it" title="Link to this heading">¶</a></h3>
+<h3>groupby: grouping data and performing mathematical operations on it<a class="headerlink" href="#groupby:-grouping-data-and-performing-mathematical-operations-on-it" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">groupby()</span></code> is a powerful method that allows for performing statistical operations over a groups of “common” data within a dataframe.</p>
 <p>For this example we’ll use it to get mean daily flows for the watershed. Pandas will group all common days of the year with each other and then calculate the mean value of these via the function <code class="docutils literal notranslate"><span class="pre">.mean()</span></code>. <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> also supports other operations such as <code class="docutils literal notranslate"><span class="pre">.median()</span></code>, <code class="docutils literal notranslate"><span class="pre">.sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">std()</span></code>, and other functions.</p>
 <div class="nbinput docutils container">
@@ -3067,7 +3070,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Joining-two-DataFrames-with-an-inner-join">
-<h3>Joining two <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> with an inner join<a class="headerlink" href="#Joining-two-DataFrames-with-an-inner-join" title="Link to this heading">¶</a></h3>
+<h3>Joining two <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> with an inner join<a class="headerlink" href="#Joining-two-DataFrames-with-an-inner-join" title="Link to this heading"></a></h3>
 <p>Inner joins can be made in pandas with the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method. As inner join, joins two dataframes on a common key or values, when a key or value exists in one dataframe, but not the other that row of data will be excluded from the joined dataframe.</p>
 <p>There are a number of other ways to join dataframes in pandas. Detailed examples and discussion of the different merging methods can be found <a class="reference external" href="https://realpython.com/pandas-merge-join-and-concat/">here</a></p>
 <div class="nbinput docutils container">
@@ -3175,10 +3178,10 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </section>
 </section>
 <section id="Stepping-back-for-a-minute:-exploring-Merge-and-Concat">
-<h2>Stepping back for a minute: exploring Merge and Concat<a class="headerlink" href="#Stepping-back-for-a-minute:-exploring-Merge-and-Concat" title="Link to this heading">¶</a></h2>
+<h2>Stepping back for a minute: exploring Merge and Concat<a class="headerlink" href="#Stepping-back-for-a-minute:-exploring-Merge-and-Concat" title="Link to this heading"></a></h2>
 <p>Merge and concat are very powerful and important methods for combining pandas DataFrames (and later geopandas GeoDataFrames). This section takes a moment, as an aside to explore some of the common funtions and options for performing merges and concatenation.</p>
 <section id="The-merge-method">
-<h3>The <code class="docutils literal notranslate"><span class="pre">merge</span></code> method<a class="headerlink" href="#The-merge-method" title="Link to this heading">¶</a></h3>
+<h3>The <code class="docutils literal notranslate"><span class="pre">merge</span></code> method<a class="headerlink" href="#The-merge-method" title="Link to this heading"></a></h3>
 <p>Pandas <code class="docutils literal notranslate"><span class="pre">merge</span></code> method allows the user to join two dataframes based on column values. There are a few methods that can be used to control the type of merge and the result.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">inner</span></code>: operates as a intersection of the data and keeps rows from both dataframes if the row has a matching key in both dataframes.</p></li>
@@ -3227,7 +3230,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="The-concat-method">
-<h3>The <code class="docutils literal notranslate"><span class="pre">concat</span></code> method<a class="headerlink" href="#The-concat-method" title="Link to this heading">¶</a></h3>
+<h3>The <code class="docutils literal notranslate"><span class="pre">concat</span></code> method<a class="headerlink" href="#The-concat-method" title="Link to this heading"></a></h3>
 <p>Pandas <code class="docutils literal notranslate"><span class="pre">concat</span></code> method allows the user to concatenate dataframes together</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
@@ -4069,7 +4072,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </section>
 </section>
 <section id="Back-to-working-with-our-climate-and-stream-data">
-<h2>Back to working with our climate and stream data<a class="headerlink" href="#Back-to-working-with-our-climate-and-stream-data" title="Link to this heading">¶</a></h2>
+<h2>Back to working with our climate and stream data<a class="headerlink" href="#Back-to-working-with-our-climate-and-stream-data" title="Link to this heading"></a></h2>
 <p>Is there anything else we can look at that might give us more insights into this basin?</p>
 <p>Let’s try looking at long term, yearly trends to see what’s there.</p>
 <div class="nbinput docutils container">
@@ -4373,7 +4376,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div></div>
 </div>
 <section id=".aggregate()">
-<h3><code class="docutils literal notranslate"><span class="pre">.aggregate()</span></code><a class="headerlink" href="#.aggregate()" title="Link to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">.aggregate()</span></code><a class="headerlink" href="#.aggregate()" title="Link to this heading"></a></h3>
 <p>The pandas <code class="docutils literal notranslate"><span class="pre">.aggregate()</span></code> can be used with <code class="docutils literal notranslate"><span class="pre">.groupy()</span></code> to perform multiple statistical operations.</p>
 <p>Example usage could be:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">agdf</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;day_of_year&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s2">&quot;austin_c_af&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">])</span>
@@ -4383,7 +4386,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </section>
 </section>
 <section id="Class-exercise-3:-groupy,-aggregate,-and-merge">
-<h2>Class exercise 3: groupy, aggregate, and merge<a class="headerlink" href="#Class-exercise-3:-groupy,-aggregate,-and-merge" title="Link to this heading">¶</a></h2>
+<h2>Class exercise 3: groupy, aggregate, and merge<a class="headerlink" href="#Class-exercise-3:-groupy,-aggregate,-and-merge" title="Link to this heading"></a></h2>
 <p>For this exercise we need to produce yearly mean and standard deviation flows for the <code class="docutils literal notranslate"><span class="pre">russian_r_af</span></code> variable and merge the data with yearly mean precipitation and evapotranspiration</p>
 <p><strong>Hints:</strong></p>
 <ul class="simple">
@@ -4835,7 +4838,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 <p>As expected, precipitation amount is the main driver of the yearly discharge regime here</p>
 <section id="Baseflow-separation">
-<h3>Baseflow separation<a class="headerlink" href="#Baseflow-separation" title="Link to this heading">¶</a></h3>
+<h3>Baseflow separation<a class="headerlink" href="#Baseflow-separation" title="Link to this heading"></a></h3>
 <p>Baseflow separation is a method to separate the quick response hydrograph (storm runoff) from the long term flow. We’re going to go back to the complete daily dataset to perform this operation. The following cell contains a low pass filtration method that is used for digital baseflow separation. We’ll use these in our analysis</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
@@ -4941,7 +4944,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </section>
 </section>
 <section id="Class-exercise-4:-baseflow-separation">
-<h2>Class exercise 4: baseflow separation<a class="headerlink" href="#Class-exercise-4:-baseflow-separation" title="Link to this heading">¶</a></h2>
+<h2>Class exercise 4: baseflow separation<a class="headerlink" href="#Class-exercise-4:-baseflow-separation" title="Link to this heading"></a></h2>
 <p>Using the full dataframe discharge dataframe, <code class="docutils literal notranslate"><span class="pre">df2</span></code>, get the baseflows for the Russian River (in acre-ft) and add these to the dataframe as a new column named <code class="docutils literal notranslate"><span class="pre">russian_bf_af</span></code>.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">baseflow_low_pass_filter()</span></code> will be used to perform baseflow. This function takes a numpy array of stream discharge and runs a digital low pass filtration method to calculate baseflow.</p>
 <p>After performing baseflow separation plot both the baseflow and the total discharge for the years 2015 - 2017.</p>
@@ -4986,7 +4989,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Looking-at-trends-and-seasonal-cycles-in-the-data-with-statsmodels">
-<h2>Looking at trends and seasonal cycles in the data with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#Looking-at-trends-and-seasonal-cycles-in-the-data-with-statsmodels" title="Link to this heading">¶</a></h2>
+<h2>Looking at trends and seasonal cycles in the data with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#Looking-at-trends-and-seasonal-cycles-in-the-data-with-statsmodels" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> is a Python module that provides classes and functions for the estimation of many different statistical models, as well as for conducting statistical tests, and statistical data exploration. For more information on <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> and it’s many features visit <a class="reference external" href="https://www.statsmodels.org/dev/gettingstarted.html">the getting started guide</a></p>
 <p>For this example we’ll be using time series analysis to perform a seasonal decomposition using moving averages. The <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> function <code class="docutils literal notranslate"><span class="pre">seasonal_decompose</span></code> will perform this analysis and return the data trend, seasonal fluctuations, and residuals.</p>
 <div class="nbinput docutils container">
@@ -5032,7 +5035,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_9528/1871956059.py:4: UserWarning: This axis already has a converter set and is updating to a potentially incompatible converter
+/tmp/ipykernel_9851/1871956059.py:4: UserWarning: This axis already has a converter set and is updating to a potentially incompatible converter
   ax.plot(decomposition.trend.index, decomposition.trend, &#34;r-&#34;, lw=1.5)
 </pre></div></div>
 </div>
@@ -5048,7 +5051,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 <p>The setting for the 1976-77 drought differed significantly from the dry times of the 1920s-30s. Although only a two-year event, its hydrology was severe. Based on 114 years of computed statewide runoff, 1977 occupies rank 114 (driest year) and 1976 is in rank 104. The drought was notable for the impacts experienced by water agencies that were unprepared for such conditions. One reason for the lack of preparedness was the perception of relatively ample water supplies in most areas of the state.</p>
 <p>We can also see the analysis that there is an overall reduction in baseflow from 1940’s to the 2020’s</p>
 <section id="Writing-yearly-plots-of-data-to-a-PDF-document">
-<h3>Writing yearly plots of data to a PDF document<a class="headerlink" href="#Writing-yearly-plots-of-data-to-a-PDF-document" title="Link to this heading">¶</a></h3>
+<h3>Writing yearly plots of data to a PDF document<a class="headerlink" href="#Writing-yearly-plots-of-data-to-a-PDF-document" title="Link to this heading"></a></h3>
 <p>We can write the plots we make with pandas to a multipage pdf using matplotlib’s <code class="docutils literal notranslate"><span class="pre">PdfPages</span></code>. For this example we’ll make yearly plots of all of the discharge, baseflow, and baseflow trend and bundle them into a single pdf document.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
@@ -5077,10 +5080,10 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </section>
 </section>
 <section id="Back-to-the-basics:">
-<h2>Back to the basics:<a class="headerlink" href="#Back-to-the-basics:" title="Link to this heading">¶</a></h2>
+<h2>Back to the basics:<a class="headerlink" href="#Back-to-the-basics:" title="Link to this heading"></a></h2>
 <p>Now that we’ve done some analysis on real data, let’s go back to the basic and briefly discuss how to adjust data values in pandas</p>
 <section id="Adjusting-a-whole-column-of-data-values">
-<h3>Adjusting a whole column of data values<a class="headerlink" href="#Adjusting-a-whole-column-of-data-values" title="Link to this heading">¶</a></h3>
+<h3>Adjusting a whole column of data values<a class="headerlink" href="#Adjusting-a-whole-column-of-data-values" title="Link to this heading"></a></h3>
 <p>Because pandas series objects (columns) are built off of numpy, we can perform mathematical operations in place on a whole column similarly to numpy arrays</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
@@ -5225,7 +5228,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="updating-values-by-position">
-<h3>updating values by position<a class="headerlink" href="#updating-values-by-position" title="Link to this heading">¶</a></h3>
+<h3>updating values by position<a class="headerlink" href="#updating-values-by-position" title="Link to this heading"></a></h3>
 <p>We can update single or multiple values by their position in the dataframe using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
@@ -5356,7 +5359,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="updating-values-based-on-location">
-<h3>updating values based on location<a class="headerlink" href="#updating-values-based-on-location" title="Link to this heading">¶</a></h3>
+<h3>updating values based on location<a class="headerlink" href="#updating-values-based-on-location" title="Link to this heading"></a></h3>
 <p>We can update values in the dataframe based on their index and column headers too using <code class="docutils literal notranslate"><span class="pre">.loc</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
@@ -5488,7 +5491,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </section>
 </section>
 <section id="Class-exercise-5:-setting-data">
-<h2>Class exercise 5: setting data<a class="headerlink" href="#Class-exercise-5:-setting-data" title="Link to this heading">¶</a></h2>
+<h2>Class exercise 5: setting data<a class="headerlink" href="#Class-exercise-5:-setting-data" title="Link to this heading"></a></h2>
 <p>The russian river discharge in cubic feet per day highly variable and represented by large numbers. To make this data easier to read and plot, update it to a log10 representation.</p>
 <p>Then use either a location based method to change the value in austin_c on 10-4-1939 to 0.</p>
 <p>Finally display the first 5 records in the notebook.</p>
@@ -5622,7 +5625,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Now-for-some-powerful-analysis-using-fourier-analysis-to-extract-the-data's-signal.">
-<h2>Now for some powerful analysis using fourier analysis to extract the data’s signal.<a class="headerlink" href="#Now-for-some-powerful-analysis-using-fourier-analysis-to-extract-the-data's-signal." title="Link to this heading">¶</a></h2>
+<h2>Now for some powerful analysis using fourier analysis to extract the data’s signal.<a class="headerlink" href="#Now-for-some-powerful-analysis-using-fourier-analysis-to-extract-the-data's-signal." title="Link to this heading"></a></h2>
 <p>Some background for your evening viewing: <a class="reference external" href="https://youtu.be/spUNpyF58BY">https://youtu.be/spUNpyF58BY</a></p>
 <p>We have to detrend the data for fast fourier transforms to work properly. Here’s a discussion on why:</p>
 <p><a class="reference external" href="https://groups.google.com/forum/#!topic/comp.dsp/kYDZqetr_TU">https://groups.google.com/forum/#!topic/comp.dsp/kYDZqetr_TU</a></p>
@@ -5751,7 +5754,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </div>
 <section id="Evaluate-and-plot-the-Period-Spectrum-to-see-timing-of-recurrence">
-<h3>Evaluate and plot the Period Spectrum to see timing of recurrence<a class="headerlink" href="#Evaluate-and-plot-the-Period-Spectrum-to-see-timing-of-recurrence" title="Link to this heading">¶</a></h3>
+<h3>Evaluate and plot the Period Spectrum to see timing of recurrence<a class="headerlink" href="#Evaluate-and-plot-the-Period-Spectrum-to-see-timing-of-recurrence" title="Link to this heading"></a></h3>
 <p>Here we’ve created a function that performs fast fourier transforms and then plot’s the spectrum for signals of various lengths.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
@@ -5795,7 +5798,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 </div>
 </section>
 <section id="Now-let's-look-at-the-whole-signal">
-<h3>Now let’s look at the whole signal<a class="headerlink" href="#Now-let's-look-at-the-whole-signal" title="Link to this heading">¶</a></h3>
+<h3>Now let’s look at the whole signal<a class="headerlink" href="#Now-let's-look-at-the-whole-signal" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
@@ -5814,7 +5817,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 <p>We see a strong annual frequency that corresponds to spring snowmelt from the surrounding mountain ranges. The second strongest frequency is biannually, and is likely due to the onset of fall in winter rains</p>
 </section>
 <section id="Okay,-what-about-years-before-dams-were-installed-on-the-Russian-River.">
-<h3>Okay, what about years before dams were installed on the Russian River.<a class="headerlink" href="#Okay,-what-about-years-before-dams-were-installed-on-the-Russian-River." title="Link to this heading">¶</a></h3>
+<h3>Okay, what about years before dams were installed on the Russian River.<a class="headerlink" href="#Okay,-what-about-years-before-dams-were-installed-on-the-Russian-River." title="Link to this heading"></a></h3>
 <p>Let’s get in the wayback machine and look at only the years prior to 1954!</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
@@ -5834,7 +5837,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 <p>The binanual and annual signals have a much wider spread, which suggests that peak runoff was a little more variable in it’s timing compared to the entire data record.</p>
 </section>
 <section id="What-if-we-focus-in-on-after-1954?">
-<h3>What if we focus in on after 1954?<a class="headerlink" href="#What-if-we-focus-in-on-after-1954?" title="Link to this heading">¶</a></h3>
+<h3>What if we focus in on after 1954?<a class="headerlink" href="#What-if-we-focus-in-on-after-1954?" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
@@ -5868,7 +5871,7 @@ array([&#39;RUSSIAN R A HACIENDA BRIDGE NR GUERNEVILLE CA&#39;,
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022-2025, USGS Python for Hydrology instructors.
-      <span class="lastupdated">Last updated on Sep 19, 2025.
+      <span class="lastupdated">Last updated on Sep 23, 2025.
       </span></p>
   </div>
 
