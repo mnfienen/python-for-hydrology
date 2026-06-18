@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>08: Working with tabular data in Pandas &mdash; Python for Hydrology 1.0a documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -135,7 +135,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Bonus Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../bonus_examples.html">     General Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../part0_bonus_examples.html">     General Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../part0_bonus_examples.html">Flopy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
@@ -173,7 +174,7 @@
              
   <section id="08:-Working-with-tabular-data-in-Pandas">
 <h1>08: Working with tabular data in Pandas<a class="headerlink" href="#08:-Working-with-tabular-data-in-Pandas" title="Link to this heading"></a></h1>
-<p><img alt="f03b15760e8442ea9410aea11160cdaf" src="../../../_images/panda.jpg" /></p>
+<p><img alt="624c71a37c4c4d8198bf907fc1e39d37" src="../../../_images/panda.jpg" /></p>
 <section id="Not-that-type-of-Panda----Python's-Pandas-package">
 <h2>Not that type of Panda – Python’s Pandas package<a class="headerlink" href="#Not-that-type-of-Panda----Python's-Pandas-package" title="Link to this heading"></a></h2>
 <p>Pandas is a powerful, flexible and easy to use open source data analysis and manipulation tool. Pandas is commonly used for operations that would normally be done in a spreadsheet environment and includes powerful data analysis and manipulation tools.</p>
@@ -211,6 +212,15 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_10517/1777507504.py:2: DeprecationWarning: `nwis.get_info` is deprecated and will be removed from `dataretrieval` on or after 2027-05-06; use `waterdata.get_monitoring_locations()` instead.
+  info, metadata = nwis.get_info(bBox=[str(i) for i in bbox])
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -218,231 +228,248 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">SSLEOFError</span>                               Traceback (most recent call last)
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/connectionpool.py:464</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool._make_request</span><span class="ansi-blue-fg">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/connectionpool.py:464</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool._make_request</span><span class="ansi-blue-fg">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
 <span class="ansi-green-fg">    463</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">464</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_validate_conn</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">464</span>     <span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">_validate_conn</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">conn</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
 <span class="ansi-green-fg">    465</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> (SocketTimeout, BaseSSLError) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/connectionpool.py:1093</span>, in <span class="ansi-cyan-fg">HTTPSConnectionPool._validate_conn</span><span class="ansi-blue-fg">(self, conn)</span>
-<span class="ansi-green-fg">   1092</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> conn.is_closed:
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1093</span>     <span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">connect</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">   1095</span> <span style="color: rgb(95,135,135)"># TODO revise this, see https://github.com/urllib3/urllib3/issues/2791</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/connectionpool.py:1106</span>, in <span class="ansi-cyan-fg">HTTPSConnectionPool._validate_conn</span><span class="ansi-blue-fg">(self, conn)</span>
+<span class="ansi-green-fg">   1105</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> conn.is_closed:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1106</span>     <span class="ansi-black-fg ansi-yellow-bg">conn</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">connect</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1108</span> <span style="color: rgb(95,135,135)"># TODO revise this, see https://github.com/urllib3/urllib3/issues/2791</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/connection.py:790</span>, in <span class="ansi-cyan-fg">HTTPSConnection.connect</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-fg">    788</span> server_hostname_rm_dot = server_hostname.rstrip(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">.</span><span class="ansi-yellow-fg">&#34;</span>)
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">790</span> sock_and_verified = <span class="ansi-yellow-bg">_ssl_wrap_socket_and_match_hostname</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg">    791</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">sock</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">sock</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    792</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">cert_reqs</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">cert_reqs</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    793</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ssl_version</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">ssl_version</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    794</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ssl_minimum_version</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">ssl_minimum_version</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    795</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ssl_maximum_version</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">ssl_maximum_version</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    796</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ca_certs</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">ca_certs</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    797</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ca_cert_dir</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">ca_cert_dir</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    798</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ca_cert_data</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">ca_cert_data</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    799</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">cert_file</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">cert_file</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    800</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">key_file</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">key_file</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    801</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">key_password</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">key_password</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    802</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">server_hostname</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">server_hostname_rm_dot</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    803</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ssl_context</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">ssl_context</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    804</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">tls_in_tls</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">tls_in_tls</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    805</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">assert_hostname</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">assert_hostname</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    806</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">assert_fingerprint</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">assert_fingerprint</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    807</span> <span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    808</span> <span style="color: rgb(0,135,0)">self</span>.sock = sock_and_verified.socket
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/connection.py:796</span>, in <span class="ansi-cyan-fg">HTTPSConnection.connect</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-fg">    794</span> server_hostname_rm_dot = server_hostname.rstrip(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">.</span><span class="ansi-yellow-fg">&#34;</span>)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">796</span> sock_and_verified = <span class="ansi-black-fg ansi-yellow-bg">_ssl_wrap_socket_and_match_hostname</span><span class="ansi-black-fg ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    797</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">sock</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">sock</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    798</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">cert_reqs</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">cert_reqs</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    799</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ssl_version</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">ssl_version</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    800</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ssl_minimum_version</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">ssl_minimum_version</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    801</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ssl_maximum_version</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">ssl_maximum_version</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    802</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ca_certs</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">ca_certs</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    803</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ca_cert_dir</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">ca_cert_dir</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    804</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ca_cert_data</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">ca_cert_data</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    805</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">cert_file</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">cert_file</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    806</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">key_file</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">key_file</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    807</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">key_password</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">key_password</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    808</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">server_hostname</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">server_hostname_rm_dot</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    809</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ssl_context</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">ssl_context</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    810</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">tls_in_tls</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">tls_in_tls</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    811</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">assert_hostname</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">assert_hostname</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    812</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">assert_fingerprint</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">assert_fingerprint</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    813</span> <span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    814</span> <span style="color: rgb(0,135,0)">self</span>.sock = sock_and_verified.socket
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/connection.py:969</span>, in <span class="ansi-cyan-fg">_ssl_wrap_socket_and_match_hostname</span><span class="ansi-blue-fg">(sock, cert_reqs, ssl_version, ssl_minimum_version, ssl_maximum_version, cert_file, key_file, key_password, ca_certs, ca_cert_dir, ca_cert_data, assert_hostname, assert_fingerprint, server_hostname, ssl_context, tls_in_tls)</span>
-<span class="ansi-green-fg">    967</span>         server_hostname = normalized
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">969</span> ssl_sock = <span class="ansi-yellow-bg">ssl_wrap_socket</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg">    970</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">sock</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">sock</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    971</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">keyfile</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">key_file</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    972</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">certfile</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">cert_file</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    973</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">key_password</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">key_password</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    974</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ca_certs</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">ca_certs</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    975</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ca_cert_dir</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">ca_cert_dir</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    976</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ca_cert_data</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">ca_cert_data</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    977</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">server_hostname</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">server_hostname</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    978</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ssl_context</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">context</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    979</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">tls_in_tls</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">tls_in_tls</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    980</span> <span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    982</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/connection.py:975</span>, in <span class="ansi-cyan-fg">_ssl_wrap_socket_and_match_hostname</span><span class="ansi-blue-fg">(sock, cert_reqs, ssl_version, ssl_minimum_version, ssl_maximum_version, cert_file, key_file, key_password, ca_certs, ca_cert_dir, ca_cert_data, assert_hostname, assert_fingerprint, server_hostname, ssl_context, tls_in_tls)</span>
+<span class="ansi-green-fg">    973</span>         server_hostname = normalized
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">975</span> ssl_sock = <span class="ansi-black-fg ansi-yellow-bg">ssl_wrap_socket</span><span class="ansi-black-fg ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    976</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">sock</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">sock</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    977</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">keyfile</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">key_file</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    978</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">certfile</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">cert_file</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    979</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">key_password</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">key_password</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    980</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ca_certs</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">ca_certs</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    981</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ca_cert_dir</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">ca_cert_dir</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    982</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ca_cert_data</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">ca_cert_data</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    983</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">server_hostname</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">server_hostname</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    984</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">ssl_context</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">context</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    985</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">tls_in_tls</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">tls_in_tls</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    986</span> <span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    988</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/util/ssl_.py:480</span>, in <span class="ansi-cyan-fg">ssl_wrap_socket</span><span class="ansi-blue-fg">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
-<span class="ansi-green-fg">    478</span> context.set_alpn_protocols(ALPN_PROTOCOLS)
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">480</span> ssl_sock = <span class="ansi-yellow-bg">_ssl_wrap_socket_impl</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">sock</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">context</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">tls_in_tls</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">server_hostname</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    481</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> ssl_sock
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/util/ssl_.py:433</span>, in <span class="ansi-cyan-fg">ssl_wrap_socket</span><span class="ansi-blue-fg">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
+<span class="ansi-green-fg">    431</span> context.set_alpn_protocols(ALPN_PROTOCOLS)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">433</span> ssl_sock = <span class="ansi-black-fg ansi-yellow-bg">_ssl_wrap_socket_impl</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">sock</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">context</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">tls_in_tls</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">server_hostname</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    434</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> ssl_sock
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/util/ssl_.py:524</span>, in <span class="ansi-cyan-fg">_ssl_wrap_socket_impl</span><span class="ansi-blue-fg">(sock, ssl_context, tls_in_tls, server_hostname)</span>
-<span class="ansi-green-fg">    522</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> SSLTransport(sock, ssl_context, server_hostname)
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">524</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">ssl_context</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">wrap_socket</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">sock</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">server_hostname</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">server_hostname</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/util/ssl_.py:477</span>, in <span class="ansi-cyan-fg">_ssl_wrap_socket_impl</span><span class="ansi-blue-fg">(sock, ssl_context, tls_in_tls, server_hostname)</span>
+<span class="ansi-green-fg">    475</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> SSLTransport(sock, ssl_context, server_hostname)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">477</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-black-fg ansi-yellow-bg">ssl_context</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">wrap_socket</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">sock</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">server_hostname</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">server_hostname</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/ssl.py:517</span>, in <span class="ansi-cyan-fg">SSLContext.wrap_socket</span><span class="ansi-blue-fg">(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)</span>
-<span class="ansi-green-fg">    511</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">wrap_socket</span>(<span style="color: rgb(0,135,0)">self</span>, sock, server_side=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>,
-<span class="ansi-green-fg">    512</span>                 do_handshake_on_connect=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>,
-<span class="ansi-green-fg">    513</span>                 suppress_ragged_eofs=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>,
-<span class="ansi-green-fg">    514</span>                 server_hostname=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, session=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>):
-<span class="ansi-green-fg">    515</span>     <span style="color: rgb(95,135,135)"># SSLSocket class handles server_hostname encoding before it calls</span>
-<span class="ansi-green-fg">    516</span>     <span style="color: rgb(95,135,135)"># ctx._wrap_socket()</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">517</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">sslsocket_class</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_create</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg">    518</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">sock</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">sock</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    519</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">server_side</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">server_side</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    520</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">do_handshake_on_connect</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">do_handshake_on_connect</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    521</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">suppress_ragged_eofs</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">suppress_ragged_eofs</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    522</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">server_hostname</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">server_hostname</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    523</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">context</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    524</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">session</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">session</span>
-<span class="ansi-green-fg">    525</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/ssl.py:455</span>, in <span class="ansi-cyan-fg">SSLContext.wrap_socket</span><span class="ansi-blue-fg">(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)</span>
+<span class="ansi-green-fg">    449</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">wrap_socket</span>(<span style="color: rgb(0,135,0)">self</span>, sock, server_side=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>,
+<span class="ansi-green-fg">    450</span>                 do_handshake_on_connect=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>,
+<span class="ansi-green-fg">    451</span>                 suppress_ragged_eofs=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>,
+<span class="ansi-green-fg">    452</span>                 server_hostname=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, session=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>):
+<span class="ansi-green-fg">    453</span>     <span style="color: rgb(95,135,135)"># SSLSocket class handles server_hostname encoding before it calls</span>
+<span class="ansi-green-fg">    454</span>     <span style="color: rgb(95,135,135)"># ctx._wrap_socket()</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">455</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">sslsocket_class</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">_create</span><span class="ansi-black-fg ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    456</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">sock</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">sock</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    457</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">server_side</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">server_side</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    458</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">do_handshake_on_connect</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">do_handshake_on_connect</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    459</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">suppress_ragged_eofs</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">suppress_ragged_eofs</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    460</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">server_hostname</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">server_hostname</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    461</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">context</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    462</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">session</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">session</span>
+<span class="ansi-green-fg">    463</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">)</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/ssl.py:1104</span>, in <span class="ansi-cyan-fg">SSLSocket._create</span><span class="ansi-blue-fg">(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)</span>
-<span class="ansi-green-fg">   1103</span>                 <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">do_handshake_on_connect should not be specified for non-blocking sockets</span><span class="ansi-yellow-fg">&#34;</span>)
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1104</span>             <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">do_handshake</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">   1105</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span>:
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/ssl.py:1076</span>, in <span class="ansi-cyan-fg">SSLSocket._create</span><span class="ansi-blue-fg">(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)</span>
+<span class="ansi-green-fg">   1075</span>                 <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">do_handshake_on_connect should not be specified for non-blocking sockets</span><span class="ansi-yellow-fg">&#34;</span>)
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1076</span>             <span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">do_handshake</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1077</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span>:
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/ssl.py:1382</span>, in <span class="ansi-cyan-fg">SSLSocket.do_handshake</span><span class="ansi-blue-fg">(self, block)</span>
-<span class="ansi-green-fg">   1381</span>         <span style="color: rgb(0,135,0)">self</span>.settimeout(<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1382</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_sslobj</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">do_handshake</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">   1383</span> <span class="ansi-bold" style="color: rgb(0,135,0)">finally</span>:
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/ssl.py:1372</span>, in <span class="ansi-cyan-fg">SSLSocket.do_handshake</span><span class="ansi-blue-fg">(self, block)</span>
+<span class="ansi-green-fg">   1371</span>         <span style="color: rgb(0,135,0)">self</span>.settimeout(<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1372</span>     <span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">_sslobj</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">do_handshake</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1373</span> <span class="ansi-bold" style="color: rgb(0,135,0)">finally</span>:
 
-<span class="ansi-red-fg">SSLEOFError</span>: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)
+<span class="ansi-red-fg">SSLEOFError</span>: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">SSLError</span>                                  Traceback (most recent call last)
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/connectionpool.py:787</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool.urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
-<span class="ansi-green-fg">    786</span> <span style="color: rgb(95,135,135)"># Make the request on the HTTPConnection object</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">787</span> response = <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_make_request</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg">    788</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    789</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    790</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    791</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">timeout_obj</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    792</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    793</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    794</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">chunked</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">chunked</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    795</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">retries</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">retries</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    796</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">response_conn</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">response_conn</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    797</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">preload_content</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">preload_content</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    798</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">decode_content</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">decode_content</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    799</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">response_kw</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    800</span> <span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    802</span> <span style="color: rgb(95,135,135)"># Everything went great!</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/connectionpool.py:788</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool.urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="ansi-green-fg">    787</span> <span style="color: rgb(95,135,135)"># Make the request on the HTTPConnection object</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">788</span> response = <span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">_make_request</span><span class="ansi-black-fg ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    789</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">conn</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    790</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">method</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    791</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">url</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    792</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">timeout</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">timeout_obj</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    793</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">body</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">body</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    794</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">headers</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">headers</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    795</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">chunked</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">chunked</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    796</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">retries</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">retries</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    797</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">response_conn</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">response_conn</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    798</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">preload_content</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">preload_content</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    799</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">decode_content</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">decode_content</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    800</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">response_kw</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    801</span> <span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    803</span> <span style="color: rgb(95,135,135)"># Everything went great!</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/connectionpool.py:488</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool._make_request</span><span class="ansi-blue-fg">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/connectionpool.py:488</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool._make_request</span><span class="ansi-blue-fg">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
 <span class="ansi-green-fg">    487</span>         new_e = _wrap_proxy_error(new_e, conn.proxy.scheme)
 <span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">488</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> new_e
 <span class="ansi-green-fg">    490</span> <span style="color: rgb(95,135,135)"># conn.request() calls http.client.*.request, not the method in</span>
 <span class="ansi-green-fg">    491</span> <span style="color: rgb(95,135,135)"># urllib3.request. It also calls makefile (recv) on the socket.</span>
 
-<span class="ansi-red-fg">SSLError</span>: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)
+<span class="ansi-red-fg">SSLError</span>: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)
 
 The above exception was the direct cause of the following exception:
 
 <span class="ansi-red-fg">MaxRetryError</span>                             Traceback (most recent call last)
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/requests/adapters.py:644</span>, in <span class="ansi-cyan-fg">HTTPAdapter.send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="ansi-green-fg">    643</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">644</span>     resp = <span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">urlopen</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg">    645</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    646</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    647</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    648</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    649</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">redirect</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    650</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">assert_same_host</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    651</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">preload_content</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    652</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">decode_content</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    653</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">retries</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">max_retries</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    654</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    655</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">chunked</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">chunked</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    656</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    658</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> (ProtocolError, <span class="ansi-bold" style="color: rgb(215,95,95)">OSError</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> err:
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/requests/adapters.py:696</span>, in <span class="ansi-cyan-fg">HTTPAdapter.send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="ansi-green-fg">    695</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">696</span>     resp = <span class="ansi-black-fg ansi-yellow-bg">conn</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">urlopen</span><span class="ansi-black-fg ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    697</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">method</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">request</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">method</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    698</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">url</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">url</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    699</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">body</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">request</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">body</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg">  </span><span class="ansi-black-fg ansi-yellow-bg"># type: ignore[arg-type]  # urllib3 stubs don&#39;t accept Iterable[bytes | str]</span>
+<span class="ansi-green-fg">    700</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">headers</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">request</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">headers</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg">  </span><span class="ansi-black-fg ansi-yellow-bg"># type: ignore[arg-type]  # urllib3#3072</span>
+<span class="ansi-green-fg">    701</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">redirect</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-intense-fg ansi-yellow-bg ansi-bold">False</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    702</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">assert_same_host</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-intense-fg ansi-yellow-bg ansi-bold">False</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    703</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">preload_content</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-intense-fg ansi-yellow-bg ansi-bold">False</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    704</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">decode_content</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-intense-fg ansi-yellow-bg ansi-bold">False</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    705</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">retries</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">max_retries</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    706</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">timeout</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">resolved_timeout</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    707</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">chunked</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">chunked</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    708</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    710</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> (ProtocolError, <span class="ansi-bold" style="color: rgb(215,95,95)">OSError</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> err:
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/connectionpool.py:841</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool.urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
-<span class="ansi-green-fg">    839</span>     new_e = ProtocolError(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Connection aborted.</span><span class="ansi-yellow-fg">&#34;</span>, new_e)
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">841</span> retries = <span class="ansi-yellow-bg">retries</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">increment</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg">    842</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">error</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">new_e</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">_pool</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">_stacktrace</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">sys</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">exc_info</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">[</span><span class="ansi-green-fg ansi-yellow-bg">2</span><span class="ansi-yellow-bg">]</span>
-<span class="ansi-green-fg">    843</span> <span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    844</span> retries.sleep()
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/connectionpool.py:842</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool.urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="ansi-green-fg">    840</span>     new_e = ProtocolError(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Connection aborted.</span><span class="ansi-yellow-fg">&#34;</span>, new_e)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">842</span> retries = <span class="ansi-black-fg ansi-yellow-bg">retries</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">increment</span><span class="ansi-black-fg ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    843</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">method</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">url</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">error</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">new_e</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">_pool</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">_stacktrace</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">sys</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">exc_info</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">)</span><span class="ansi-black-fg ansi-yellow-bg">[</span><span class="ansi-black-fg ansi-yellow-bg">2</span><span class="ansi-black-fg ansi-yellow-bg">]</span>
+<span class="ansi-green-fg">    844</span> <span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    845</span> retries.sleep()
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/urllib3/util/retry.py:519</span>, in <span class="ansi-cyan-fg">Retry.increment</span><span class="ansi-blue-fg">(self, method, url, response, error, _pool, _stacktrace)</span>
-<span class="ansi-green-fg">    518</span>     reason = error <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> ResponseError(cause)
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">519</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> MaxRetryError(_pool, url, reason) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-intense-fg ansi-bold">reason</span>  <span style="color: rgb(95,135,135)"># type: ignore[arg-type]</span>
-<span class="ansi-green-fg">    521</span> log.debug(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Incremented Retry for (url=</span><span class="ansi-yellow-fg">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">%s</span><span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">): </span><span class="ansi-bold" style="color: rgb(175,95,135)">%r</span><span class="ansi-yellow-fg">&#34;</span>, url, new_retry)
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/urllib3/util/retry.py:543</span>, in <span class="ansi-cyan-fg">Retry.increment</span><span class="ansi-blue-fg">(self, method, url, response, error, _pool, _stacktrace)</span>
+<span class="ansi-green-fg">    542</span>     reason = error <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> ResponseError(cause)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">543</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> MaxRetryError(_pool, url, reason) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-intense-fg ansi-bold">reason</span>  <span style="color: rgb(95,135,135)"># type: ignore[arg-type]</span>
+<span class="ansi-green-fg">    545</span> log.debug(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Incremented Retry for (url=</span><span class="ansi-yellow-fg">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">%s</span><span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">): </span><span class="ansi-bold" style="color: rgb(175,95,135)">%r</span><span class="ansi-yellow-fg">&#34;</span>, url, new_retry)
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPSConnectionPool(host=&#39;waterservices.usgs.gov&#39;, port=443): Max retries exceeded with url: /nwis/site?bBox=-123.1%2C38.45%2C-122.9%2C38.55&amp;siteOutput=Expanded&amp;format=rdb (Caused by SSLError(SSLEOFError(8, &#39;[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)&#39;)))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPSConnectionPool(host=&#39;waterservices.usgs.gov&#39;, port=443): Max retries exceeded with url: /nwis/site?bBox=-123.1%2C38.45%2C-122.9%2C38.55&amp;siteOutput=Expanded&amp;format=rdb (Caused by SSLError(SSLEOFError(8, &#39;[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)&#39;)))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">SSLError</span>                                  Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[2]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> bbox = (-<span class="ansi-green-fg">123.10</span>, <span class="ansi-green-fg">38.45</span>, -<span class="ansi-green-fg">122.90</span>, <span class="ansi-green-fg">38.55</span>)
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> info, metadata = <span class="ansi-yellow-bg">nwis</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get_info</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">bBox</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">str</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">i</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">for</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">i</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(175,0,255)">in</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">bbox</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">      3</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">geometry</span><span class="ansi-yellow-fg">&#39;</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">list</span>(info):
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> info, metadata = nwis.get_info(bBox=[str(i) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> i <span class="ansi-bold" style="color: rgb(0,135,0)">in</span> bbox])
+<span class="ansi-green-fg">      3</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-yellow-fg">&#39;geometry&#39;</span> <span class="ansi-bold" style="color: rgb(0,135,0)">in</span> list(info):
 <span class="ansi-green-fg">      4</span>     <span style="color: rgb(95,135,135)"># dataretreival now returns as geopandas dataframe, drop &#34;geometry&#34; column for this example</span>
-<span class="ansi-green-fg">      5</span>     info.drop(columns=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">geometry</span><span class="ansi-yellow-fg">&#34;</span>], inplace=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-fg">      5</span>     info.drop(columns=[<span class="ansi-yellow-fg">&#34;geometry&#34;</span>], inplace=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/dataretrieval/nwis.py:816</span>, in <span class="ansi-cyan-fg">get_info</span><span class="ansi-blue-fg">(ssl_check, **kwargs)</span>
-<span class="ansi-green-fg">    812</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg">    813</span>     <span style="color: rgb(95,135,135)"># cannot have both seriesCatalogOutput and the expanded format</span>
-<span class="ansi-green-fg">    814</span>     kwargs[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">siteOutput</span><span class="ansi-yellow-fg">&#34;</span>] = <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Expanded</span><span class="ansi-yellow-fg">&#34;</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">816</span> response = <span class="ansi-yellow-bg">query_waterservices</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-fg ansi-yellow-bg">&#34;</span><span class="ansi-yellow-fg ansi-yellow-bg">site</span><span class="ansi-yellow-fg ansi-yellow-bg">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">ssl_check</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">ssl_check</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    818</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> _read_rdb(response.text), NWIS_Metadata(response, **kwargs)
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/dataretrieval/nwis.py:106</span>, in <span class="ansi-cyan-fg">_deprecated.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">    104</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">    105</span>     _warn_deprecated(func.<span class="ansi-blue-fg">__name__</span>)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">106</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-black-fg ansi-yellow-bg">func</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">args</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">kwargs</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    107</span> <span class="ansi-bold" style="color: rgb(0,135,0)">finally</span>:
+<span class="ansi-green-fg">    108</span>     _deprecation_state.active = <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/dataretrieval/nwis.py:633</span>, in <span class="ansi-cyan-fg">query_waterservices</span><span class="ansi-blue-fg">(service, ssl_check, **kwargs)</span>
-<span class="ansi-green-fg">    629</span>     kwargs[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">format</span><span class="ansi-yellow-fg">&#34;</span>] = <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">rdb</span><span class="ansi-yellow-fg">&#34;</span>
-<span class="ansi-green-fg">    631</span> url = WATERSERVICE_URL + service
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">633</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">query</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">payload</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">ssl_check</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">ssl_check</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/dataretrieval/nwis.py:659</span>, in <span class="ansi-cyan-fg">get_info</span><span class="ansi-blue-fg">(ssl_check, **kwargs)</span>
+<span class="ansi-green-fg">    655</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">    656</span>     <span style="color: rgb(95,135,135)"># cannot have both seriesCatalogOutput and the expanded format</span>
+<span class="ansi-green-fg">    657</span>     kwargs[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">siteOutput</span><span class="ansi-yellow-fg">&#34;</span>] = <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Expanded</span><span class="ansi-yellow-fg">&#34;</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">659</span> response = <span class="ansi-black-fg ansi-yellow-bg">query_waterservices</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">&#34;</span><span class="ansi-black-fg ansi-yellow-bg">site</span><span class="ansi-black-fg ansi-yellow-bg">&#34;</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">ssl_check</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">ssl_check</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">kwargs</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    661</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> _read_rdb(response.text), NWIS_Metadata(response, **kwargs)
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/dataretrieval/utils.py:190</span>, in <span class="ansi-cyan-fg">query</span><span class="ansi-blue-fg">(url, payload, delimiter, ssl_check)</span>
-<span class="ansi-green-fg">    183</span> <span style="color: rgb(95,135,135)"># for index in range(len(payload)):</span>
-<span class="ansi-green-fg">    184</span> <span style="color: rgb(95,135,135)">#    key, value = payload[index]</span>
-<span class="ansi-green-fg">    185</span> <span style="color: rgb(95,135,135)">#    payload[index] = (key, to_str(value))</span>
-<span class="ansi-green-fg">    186</span>
-<span class="ansi-green-fg">    187</span> <span style="color: rgb(95,135,135)"># define the user agent for the query</span>
-<span class="ansi-green-fg">    188</span> user_agent = {<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">user-agent</span><span class="ansi-yellow-fg">&#34;</span>: <span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">python-dataretrieval/</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>dataretrieval.__version__<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-yellow-fg">&#34;</span>}
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">190</span> response = <span class="ansi-yellow-bg">requests</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">params</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">payload</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">user_agent</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">verify</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">ssl_check</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    192</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> response.status_code == <span class="ansi-green-fg">400</span>:
-<span class="ansi-green-fg">    193</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(
-<span class="ansi-green-fg">    194</span>         <span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Bad Request, check that your parameters are correct. URL: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>response.url<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-yellow-fg">&#34;</span>
-<span class="ansi-green-fg">    195</span>     )
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/dataretrieval/nwis.py:102</span>, in <span class="ansi-cyan-fg">_deprecated.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">     99</span> <span style="color: rgb(175,0,255)">@functools</span>.wraps(func)
+<span class="ansi-green-fg">    100</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">wrapper</span>(*args, **kwargs):
+<span class="ansi-green-fg">    101</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">getattr</span>(_deprecation_state, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">active</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>):
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">102</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-black-fg ansi-yellow-bg">func</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">args</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">kwargs</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    103</span>     _deprecation_state.active = <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>
+<span class="ansi-green-fg">    104</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/requests/api.py:73</span>, in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
-<span class="ansi-green-fg">     62</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">get</span>(url, params=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, **kwargs):
-<span class="ansi-green-fg">     63</span> <span style="color: rgb(188,188,188)">    </span><span class="ansi-yellow-fg">r</span><span class="ansi-yellow-fg">&#34;&#34;&#34;Sends a GET request.</span>
-<span class="ansi-green-fg">     64</span>
-<span class="ansi-green-fg">     65</span> <span class="ansi-yellow-fg">    :param url: URL for the new :class:`Request` object.</span>
-<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">     70</span> <span class="ansi-yellow-fg">    :rtype: requests.Response</span>
-<span class="ansi-green-fg">     71</span> <span class="ansi-yellow-fg">    &#34;&#34;&#34;</span>
-<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">73</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-fg ansi-yellow-bg">&#34;</span><span class="ansi-yellow-fg ansi-yellow-bg">get</span><span class="ansi-yellow-fg ansi-yellow-bg">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">params</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">params</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/dataretrieval/nwis.py:473</span>, in <span class="ansi-cyan-fg">query_waterservices</span><span class="ansi-blue-fg">(service, ssl_check, **kwargs)</span>
+<span class="ansi-green-fg">    469</span>     kwargs[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">format</span><span class="ansi-yellow-fg">&#34;</span>] = <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">rdb</span><span class="ansi-yellow-fg">&#34;</span>
+<span class="ansi-green-fg">    471</span> url = WATERSERVICE_URL + service
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">473</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-black-fg ansi-yellow-bg">query</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">url</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">payload</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">kwargs</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">ssl_check</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">ssl_check</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/requests/api.py:59</span>, in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(method, url, **kwargs)</span>
-<span class="ansi-green-fg">     55</span> <span style="color: rgb(95,135,135)"># By using the &#39;with&#39; statement we are sure the session is closed, thus we</span>
-<span class="ansi-green-fg">     56</span> <span style="color: rgb(95,135,135)"># avoid leaving sockets open which can trigger a ResourceWarning in some</span>
-<span class="ansi-green-fg">     57</span> <span style="color: rgb(95,135,135)"># cases, and look like a memory leak in others.</span>
-<span class="ansi-green-fg">     58</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> sessions.Session() <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> session:
-<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">59</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">session</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/dataretrieval/utils.py:290</span>, in <span class="ansi-cyan-fg">query</span><span class="ansi-blue-fg">(url, payload, delimiter, ssl_check)</span>
+<span class="ansi-green-fg">    283</span> <span style="color: rgb(95,135,135)"># for index in range(len(payload)):</span>
+<span class="ansi-green-fg">    284</span> <span style="color: rgb(95,135,135)">#    key, value = payload[index]</span>
+<span class="ansi-green-fg">    285</span> <span style="color: rgb(95,135,135)">#    payload[index] = (key, to_str(value))</span>
+<span class="ansi-green-fg">    286</span>
+<span class="ansi-green-fg">    287</span> <span style="color: rgb(95,135,135)"># define the user agent for the query</span>
+<span class="ansi-green-fg">    288</span> user_agent = {<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">user-agent</span><span class="ansi-yellow-fg">&#34;</span>: <span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">python-dataretrieval/</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>dataretrieval.__version__<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-yellow-fg">&#34;</span>}
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">290</span> response = <span class="ansi-black-fg ansi-yellow-bg">requests</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">get</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">url</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">params</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">payload</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">headers</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">user_agent</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">verify</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">ssl_check</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    292</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> response.status_code == <span class="ansi-green-fg">400</span>:
+<span class="ansi-green-fg">    293</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-fg">    294</span>         <span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Bad Request, check that your parameters are correct. URL: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>response.url<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-yellow-fg">&#34;</span>
+<span class="ansi-green-fg">    295</span>     )
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/requests/sessions.py:589</span>, in <span class="ansi-cyan-fg">Session.request</span><span class="ansi-blue-fg">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="ansi-green-fg">    584</span> send_kwargs = {
-<span class="ansi-green-fg">    585</span>     <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">timeout</span><span class="ansi-yellow-fg">&#34;</span>: timeout,
-<span class="ansi-green-fg">    586</span>     <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">allow_redirects</span><span class="ansi-yellow-fg">&#34;</span>: allow_redirects,
-<span class="ansi-green-fg">    587</span> }
-<span class="ansi-green-fg">    588</span> send_kwargs.update(settings)
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">589</span> resp = <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">send</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">prep</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">send_kwargs</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    591</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> resp
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/requests/api.py:87</span>, in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
+<span class="ansi-green-fg">     74</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">get</span>(
+<span class="ansi-green-fg">     75</span>     url: _t.UriType, params: _t.ParamsType = <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, **kwargs: Unpack[_t.GetKwargs]
+<span class="ansi-green-fg">     76</span> ) -&gt; Response:
+<span class="ansi-green-fg">     77</span> <span style="color: rgb(188,188,188)">    </span><span class="ansi-yellow-fg">r</span><span class="ansi-yellow-fg">&#34;&#34;&#34;Sends a GET request.</span>
+<span class="ansi-green-fg">     78</span>
+<span class="ansi-green-fg">     79</span> <span class="ansi-yellow-fg">    :param url: URL for the new :class:`Request` object.</span>
+<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">     84</span> <span class="ansi-yellow-fg">    :rtype: requests.Response</span>
+<span class="ansi-green-fg">     85</span> <span class="ansi-yellow-fg">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">87</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-black-fg ansi-yellow-bg">request</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">&#34;</span><span class="ansi-black-fg ansi-yellow-bg">get</span><span class="ansi-black-fg ansi-yellow-bg">&#34;</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">url</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">params</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">params</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">kwargs</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/requests/sessions.py:703</span>, in <span class="ansi-cyan-fg">Session.send</span><span class="ansi-blue-fg">(self, request, **kwargs)</span>
-<span class="ansi-green-fg">    700</span> start = preferred_clock()
-<span class="ansi-green-fg">    702</span> <span style="color: rgb(95,135,135)"># Send the request</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">703</span> r = <span class="ansi-yellow-bg">adapter</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">send</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    705</span> <span style="color: rgb(95,135,135)"># Total elapsed time of the request (approximately)</span>
-<span class="ansi-green-fg">    706</span> elapsed = preferred_clock() - start
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/requests/api.py:71</span>, in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(method, url, **kwargs)</span>
+<span class="ansi-green-fg">     67</span> <span style="color: rgb(95,135,135)"># By using the &#39;with&#39; statement we are sure the session is closed, thus we</span>
+<span class="ansi-green-fg">     68</span> <span style="color: rgb(95,135,135)"># avoid leaving sockets open which can trigger a ResourceWarning in some</span>
+<span class="ansi-green-fg">     69</span> <span style="color: rgb(95,135,135)"># cases, and look like a memory leak in others.</span>
+<span class="ansi-green-fg">     70</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> sessions.Session() <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> session:
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">71</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-black-fg ansi-yellow-bg">session</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">request</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">method</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">method</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">url</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">url</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">kwargs</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.11/site-packages/requests/adapters.py:675</span>, in <span class="ansi-cyan-fg">HTTPAdapter.send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="ansi-green-fg">    671</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> ProxyError(e, request=request)
-<span class="ansi-green-fg">    673</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(e.reason, _SSLError):
-<span class="ansi-green-fg">    674</span>         <span style="color: rgb(95,135,135)"># This branch is for urllib3 v1.22 and later.</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">675</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> SSLError(e, request=request)
-<span class="ansi-green-fg">    677</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ConnectionError</span>(e, request=request)
-<span class="ansi-green-fg">    679</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> ClosedPoolError <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/requests/sessions.py:651</span>, in <span class="ansi-cyan-fg">Session.request</span><span class="ansi-blue-fg">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="ansi-green-fg">    646</span> send_kwargs = {
+<span class="ansi-green-fg">    647</span>     <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">timeout</span><span class="ansi-yellow-fg">&#34;</span>: timeout,
+<span class="ansi-green-fg">    648</span>     <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">allow_redirects</span><span class="ansi-yellow-fg">&#34;</span>: allow_redirects,
+<span class="ansi-green-fg">    649</span> }
+<span class="ansi-green-fg">    650</span> send_kwargs.update(settings)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">651</span> resp = <span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">send</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">prep</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">send_kwargs</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    653</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> resp
 
-<span class="ansi-red-fg">SSLError</span>: HTTPSConnectionPool(host=&#39;waterservices.usgs.gov&#39;, port=443): Max retries exceeded with url: /nwis/site?bBox=-123.1%2C38.45%2C-122.9%2C38.55&amp;siteOutput=Expanded&amp;format=rdb (Caused by SSLError(SSLEOFError(8, &#39;[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)&#39;)))
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/requests/sessions.py:784</span>, in <span class="ansi-cyan-fg">Session.send</span><span class="ansi-blue-fg">(self, request, **kwargs)</span>
+<span class="ansi-green-fg">    781</span> start = preferred_clock()
+<span class="ansi-green-fg">    783</span> <span style="color: rgb(95,135,135)"># Send the request</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">784</span> r = <span class="ansi-black-fg ansi-yellow-bg">adapter</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">send</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">request</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">kwargs</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    786</span> <span style="color: rgb(95,135,135)"># Total elapsed time of the request (approximately)</span>
+<span class="ansi-green-fg">    787</span> elapsed = preferred_clock() - start
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/micromamba/envs/pyclass-docs/lib/python3.14/site-packages/requests/adapters.py:727</span>, in <span class="ansi-cyan-fg">HTTPAdapter.send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="ansi-green-fg">    723</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> ProxyError(e, request=request)
+<span class="ansi-green-fg">    725</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(e.reason, _SSLError):
+<span class="ansi-green-fg">    726</span>         <span style="color: rgb(95,135,135)"># This branch is for urllib3 v1.22 and later.</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">727</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> SSLError(e, request=request)
+<span class="ansi-green-fg">    729</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ConnectionError</span>(e, request=request)
+<span class="ansi-green-fg">    731</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> ClosedPoolError <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:
+
+<span class="ansi-red-fg">SSLError</span>: HTTPSConnectionPool(host=&#39;waterservices.usgs.gov&#39;, port=443): Max retries exceeded with url: /nwis/site?bBox=-123.1%2C38.45%2C-122.9%2C38.55&amp;siteOutput=Expanded&amp;format=rdb (Caused by SSLError(SSLEOFError(8, &#39;[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)&#39;)))
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -462,7 +489,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[3]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">info</span>.to_csv(data_path / <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">site_info.csv</span><span class="ansi-yellow-fg">&#34;</span>, index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> info.to_csv(data_path / <span class="ansi-yellow-fg">&#34;site_info.csv&#34;</span>, index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 <span class="ansi-green-fg">      2</span> info.head()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
@@ -497,7 +524,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[4]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">info</span>.head()
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> info.head()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -518,7 +545,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[5]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">info</span>.tail()
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> info.tail()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -541,7 +568,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[6]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># print the index names</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">info</span>.index)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> print(info.index)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -567,9 +594,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[7]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># print the column names</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">info</span>.columns)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> print(info.columns)
+<span class="ansi-green-fg">      3</span>
 <span class="ansi-green-fg">      4</span> <span style="color: rgb(95,135,135)"># print the column names as a list</span>
-<span class="ansi-green-fg">      5</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(0,135,0)">list</span>(info))
+<span class="ansi-green-fg">      5</span> print(list(info))
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -591,7 +619,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[8]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">info</span>.describe()
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> info.describe()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -619,7 +647,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[9]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># get a series of site numbers by key</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span class="ansi-yellow-bg">info</span>[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">site_no</span><span class="ansi-yellow-fg">&#34;</span>]
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> info[<span class="ansi-yellow-fg">&#34;site_no&#34;</span>]
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -642,7 +670,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[10]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># get station names by attribute</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span class="ansi-yellow-bg">info</span>.station_nm
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> info.station_nm
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -664,7 +692,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[11]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">info</span>.station_nm.values
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> info.station_nm.values
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -688,7 +716,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[12]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">info</span>.iloc[<span class="ansi-green-fg">0</span>:<span class="ansi-green-fg">2</span>, <span class="ansi-green-fg">1</span>:<span class="ansi-green-fg">4</span>]
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> info.iloc[<span class="ansi-green-fg">0</span>:<span class="ansi-green-fg">2</span>, <span class="ansi-green-fg">1</span>:<span class="ansi-green-fg">4</span>]
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -713,7 +741,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[13]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">info</span>.loc[<span class="ansi-green-fg">0</span>:<span class="ansi-green-fg">3</span>, [<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">site_no</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">station_nm</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">site_tp_cd</span><span class="ansi-yellow-fg">&#34;</span>]]
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> info.loc[<span class="ansi-green-fg">0</span>:<span class="ansi-green-fg">3</span>, [<span class="ansi-yellow-fg">&#34;site_no&#34;</span>, <span class="ansi-yellow-fg">&#34;station_nm&#34;</span>, <span class="ansi-yellow-fg">&#34;site_tp_cd&#34;</span>]]
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -740,7 +768,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[14]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> dfgw = <span class="ansi-yellow-bg">info</span>[info[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">site_tp_cd</span><span class="ansi-yellow-fg">&#34;</span>] == <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">GW</span><span class="ansi-yellow-fg">&#34;</span>]
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> dfgw = info[info[<span class="ansi-yellow-fg">&#34;site_tp_cd&#34;</span>] == <span class="ansi-yellow-fg">&#34;GW&#34;</span>]
 <span class="ansi-green-fg">      2</span> dfgw
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
@@ -769,8 +797,8 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[15]</span><span class="ansi-green-fg">, line 2</span>
-<span class="ansi-green-fg">      1</span> csv_file = data_path / <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">RussianRiverGWsites.csv</span><span class="ansi-yellow-fg">&#34;</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span class="ansi-yellow-bg">dfgw</span>.to_csv(csv_file, index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-fg">      1</span> csv_file = data_path / <span class="ansi-yellow-fg">&#34;RussianRiverGWsites.csv&#34;</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> dfgw.to_csv(csv_file, index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;dfgw&#39; is not defined
 </pre></div></div>
@@ -847,7 +875,7 @@ During handling of the above exception, another exception occurred:
       <td>...</td>
       <td>Y</td>
       <td>C</td>
-      <td>YY   Y</td>
+      <td>YY&nbsp;&nbsp; Y</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -871,7 +899,7 @@ During handling of the above exception, another exception occurred:
       <td>...</td>
       <td>Y</td>
       <td>C</td>
-      <td>YY   Y</td>
+      <td>YY&nbsp;&nbsp; Y</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -895,7 +923,7 @@ During handling of the above exception, another exception occurred:
       <td>...</td>
       <td>Y</td>
       <td>C</td>
-      <td>YY   Y</td>
+      <td>YY&nbsp;&nbsp; Y</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -967,7 +995,7 @@ During handling of the above exception, another exception occurred:
       <td>...</td>
       <td>Y</td>
       <td>C</td>
-      <td>YY   Y</td>
+      <td>YY&nbsp;&nbsp; Y</td>
       <td>N100CACSTL</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1015,7 +1043,7 @@ During handling of the above exception, another exception occurred:
       <td>...</td>
       <td>Y</td>
       <td>C</td>
-      <td>YY   Y</td>
+      <td>YY&nbsp;&nbsp; Y</td>
       <td>N100CACSTL</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1039,7 +1067,7 @@ During handling of the above exception, another exception occurred:
       <td>...</td>
       <td>Y</td>
       <td>C</td>
-      <td>YY   Y</td>
+      <td>YY&nbsp;&nbsp; Y</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1087,7 +1115,7 @@ During handling of the above exception, another exception occurred:
       <td>...</td>
       <td>Y</td>
       <td>C</td>
-      <td>YY   Y</td>
+      <td>YY&nbsp;&nbsp; Y</td>
       <td>N100CACSTL</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1127,9 +1155,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[17]</span><span class="ansi-green-fg">, line 2</span>
-<span class="ansi-green-fg">      1</span> csv_name = data_path / <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">RussianRiverSWsites.csv</span><span class="ansi-yellow-fg">&#34;</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> dfsw = <span class="ansi-yellow-bg">info</span>[info.site_tp_cd == <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">ST</span><span class="ansi-yellow-fg">&#34;</span>]
+<span class="ansi-green-fg">      1</span> csv_name = data_path / <span class="ansi-yellow-fg">&#34;RussianRiverSWsites.csv&#34;</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> dfsw = info[info.site_tp_cd == <span class="ansi-yellow-fg">&#34;ST&#34;</span>]
 <span class="ansi-green-fg">      3</span> dfsw.to_csv(csv_name, index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-fg">      4</span>
 <span class="ansi-green-fg">      5</span> dfsw = pd.read_csv(csv_name)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
@@ -1172,7 +1201,8 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[18]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># filter for only SW sites</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> dfsw = <span class="ansi-yellow-bg">info</span>[info.site_tp_cd == <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">ST</span><span class="ansi-yellow-fg">&#34;</span>]
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> dfsw = info[info.site_tp_cd == <span class="ansi-yellow-fg">&#34;ST&#34;</span>]
+<span class="ansi-green-fg">      3</span>
 <span class="ansi-green-fg">      4</span> <span style="color: rgb(95,135,135)"># create query</span>
 <span class="ansi-green-fg">      5</span> sites = dfsw.site_no.to_list()
 
@@ -1200,9 +1230,9 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[19]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> ax = <span class="ansi-yellow-bg">df</span>.plot()
-<span class="ansi-green-fg">      2</span> ax.set_ylabel(<span class="ansi-yellow-fg">r</span><span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">cubic meter per second</span><span class="ansi-yellow-fg">&#34;</span>)
-<span class="ansi-green-fg">      3</span> ax.set_yscale(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">log</span><span class="ansi-yellow-fg">&#34;</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> ax = df.plot()
+<span class="ansi-green-fg">      2</span> ax.set_ylabel(<span class="ansi-yellow-fg">r&#34;cubic meter per second&#34;</span>)
+<span class="ansi-green-fg">      3</span> ax.set_yscale(<span class="ansi-yellow-fg">&#34;log&#34;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df&#39; is not defined
 </pre></div></div>
@@ -1228,7 +1258,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[20]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">df</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df&#39; is not defined
 </pre></div></div>
@@ -1255,10 +1285,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[21]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2 = <span class="ansi-yellow-bg">df</span>[[<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">site_no</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">00060_Mean</span><span class="ansi-yellow-fg">&#39;</span>]].pivot(columns=[<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">site_no</span><span class="ansi-yellow-fg">&#39;</span>])
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2 = df[[<span class="ansi-yellow-fg">&#39;site_no&#39;</span>, <span class="ansi-yellow-fg">&#39;00060_Mean&#39;</span>]].pivot(columns=[<span class="ansi-yellow-fg">&#39;site_no&#39;</span>])
 <span class="ansi-green-fg">      2</span> df2.columns = df2.columns.get_level_values(<span class="ansi-green-fg">1</span>)
-<span class="ansi-green-fg">      4</span> site_names = {site_no: <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">_</span><span class="ansi-yellow-fg">&#39;</span>.join(name.split()[:<span class="ansi-green-fg">2</span>]).lower() <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> site_no, name
-<span class="ansi-green-fg">      5</span>               <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> info.groupby(<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">site_no</span><span class="ansi-yellow-fg">&#39;</span>)[<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">station_nm</span><span class="ansi-yellow-fg">&#39;</span>].first().loc[df2.columns].items()}
+<span class="ansi-green-fg">      3</span>
+<span class="ansi-green-fg">      4</span> site_names = {site_no: &#39;_&#39;.join(name.split()[:2]).lower() for site_no, name
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df&#39; is not defined
 </pre></div></div>
@@ -1284,7 +1314,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[22]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2[<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#39;</span>] = np.where(<span class="ansi-yellow-bg">df2</span>.index.month &gt;=<span class="ansi-green-fg">10</span>, df2.index.year, df2.index.year - <span class="ansi-green-fg">1</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2[<span class="ansi-yellow-fg">&#39;year&#39;</span>] = np.where(df2.index.month &gt;=<span class="ansi-green-fg">10</span>, df2.index.year, df2.index.year - <span class="ansi-green-fg">1</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -1315,7 +1345,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[23]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">df2</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -1345,9 +1375,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[24]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> conv = <span class="ansi-green-fg">60</span> * <span class="ansi-green-fg">60</span> * <span class="ansi-green-fg">24</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_cfd</span><span class="ansi-yellow-fg">&#34;</span>] = <span class="ansi-yellow-bg">df2</span>.russian_r * conv
-<span class="ansi-green-fg">      3</span> df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>] = df2.russian_r_cfd / <span class="ansi-green-fg">43559.9</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> df2[<span class="ansi-yellow-fg">&#34;russian_r_cfd&#34;</span>] = df2.russian_r * conv
+<span class="ansi-green-fg">      3</span> df2[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>] = df2.russian_r_cfd / <span class="ansi-green-fg">43559.9</span>
 <span class="ansi-green-fg">      4</span> df2
+<span class="ansi-green-fg">      5</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -1383,9 +1414,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[25]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> conv = <span class="ansi-green-fg">60</span> * <span class="ansi-green-fg">60</span> * <span class="ansi-green-fg">24</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">austin_c_cfd</span><span class="ansi-yellow-fg">&#34;</span>] = <span class="ansi-yellow-bg">df2</span>.austin_c * conv
-<span class="ansi-green-fg">      3</span> df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">austin_c_af</span><span class="ansi-yellow-fg">&#34;</span>] = df2.austin_c_cfd / <span class="ansi-green-fg">43559.9</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> df2[<span class="ansi-yellow-fg">&#34;austin_c_cfd&#34;</span>] = df2.austin_c * conv
+<span class="ansi-green-fg">      3</span> df2[<span class="ansi-yellow-fg">&#34;austin_c_af&#34;</span>] = df2.austin_c_cfd / <span class="ansi-green-fg">43559.9</span>
 <span class="ansi-green-fg">      4</span> df2
+<span class="ansi-green-fg">      5</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -1410,9 +1442,9 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[26]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># now let&#39;s plot up discharge from 2018 - 2020</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> dfplt = <span class="ansi-yellow-bg">df2</span>[(df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>] &gt;= <span class="ansi-green-fg">2015</span>) &amp; (df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>] &lt;= <span class="ansi-green-fg">2020</span>)]
-<span class="ansi-green-fg">      3</span> ax = dfplt[[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>,<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">austin_c_af</span><span class="ansi-yellow-fg">&#34;</span>]].plot()
-<span class="ansi-green-fg">      4</span> ax.set_yscale(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">log</span><span class="ansi-yellow-fg">&#34;</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> dfplt = df2[(df2[<span class="ansi-yellow-fg">&#34;year&#34;</span>] &gt;= <span class="ansi-green-fg">2015</span>) &amp; (df2[<span class="ansi-yellow-fg">&#34;year&#34;</span>] &lt;= <span class="ansi-green-fg">2020</span>)]
+<span class="ansi-green-fg">      3</span> ax = dfplt[[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>,<span class="ansi-yellow-fg">&#34;austin_c_af&#34;</span>]].plot()
+<span class="ansi-green-fg">      4</span> ax.set_yscale(<span class="ansi-yellow-fg">&#34;log&#34;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -1441,9 +1473,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[27]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">day_of_year</span><span class="ansi-yellow-fg">&#34;</span>] = <span class="ansi-yellow-bg">df2</span>.index.day_of_year
-<span class="ansi-green-fg">      3</span> df_mean_day = df2.groupby(by=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">day_of_year</span><span class="ansi-yellow-fg">&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">austin_c_af</span><span class="ansi-yellow-fg">&#34;</span>]].mean()
-<span class="ansi-green-fg">      4</span> ax = df_mean_day[[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">austin_c_af</span><span class="ansi-yellow-fg">&#34;</span>]].plot()
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2[<span class="ansi-yellow-fg">&#34;day_of_year&#34;</span>] = df2.index.day_of_year
+<span class="ansi-green-fg">      2</span>
+<span class="ansi-green-fg">      3</span> df_mean_day = df2.groupby(by=[<span class="ansi-yellow-fg">&#34;day_of_year&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>, <span class="ansi-yellow-fg">&#34;austin_c_af&#34;</span>]].mean()
+<span class="ansi-green-fg">      4</span> ax = df_mean_day[[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>, <span class="ansi-yellow-fg">&#34;austin_c_af&#34;</span>]].plot()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -1872,7 +1905,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[30]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_merged = pd.merge(<span class="ansi-yellow-bg">df_mean_day</span>, df_mean_clim, on=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">day_of_year</span><span class="ansi-yellow-fg">&#34;</span>,])
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_merged = pd.merge(df_mean_day, df_mean_clim, on=[<span class="ansi-yellow-fg">&#34;day_of_year&#34;</span>,])
 <span class="ansi-green-fg">      2</span> df_merged.head()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df_mean_day&#39; is not defined
@@ -1896,9 +1929,9 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[31]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> cols = [i <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> i <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">list</span>(<span class="ansi-yellow-bg">df_merged</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> i != <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">day_of_year</span><span class="ansi-yellow-fg">&#34;</span>]
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> cols = [i <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> i <span class="ansi-bold" style="color: rgb(0,135,0)">in</span> list(df_merged) <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> i != <span class="ansi-yellow-fg">&#34;day_of_year&#34;</span>]
 <span class="ansi-green-fg">      2</span> ax = df_merged[cols].plot()
-<span class="ansi-green-fg">      3</span> ax.set_yscale(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">log</span><span class="ansi-yellow-fg">&#34;</span>)
+<span class="ansi-green-fg">      3</span> ax.set_yscale(<span class="ansi-yellow-fg">&#34;log&#34;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df_merged&#39; is not defined
 </pre></div></div>
@@ -1980,9 +2013,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[33]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> gw = <span class="ansi-yellow-bg">info</span>[info.site_tp_cd == <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">GW</span><span class="ansi-yellow-fg">&#34;</span>]
-<span class="ansi-green-fg">      2</span> sw = info[info.site_tp_cd == <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">ST</span><span class="ansi-yellow-fg">&#34;</span>]
-<span class="ansi-green-fg">      3</span> sw = sw[<span style="color: rgb(0,135,0)">list</span>(sw)[<span class="ansi-green-fg">0</span>:<span class="ansi-green-fg">8</span>]]
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> gw = info[info.site_tp_cd == <span class="ansi-yellow-fg">&#34;GW&#34;</span>]
+<span class="ansi-green-fg">      2</span> sw = info[info.site_tp_cd == <span class="ansi-yellow-fg">&#34;ST&#34;</span>]
+<span class="ansi-green-fg">      3</span> sw = sw[list(sw)[<span class="ansi-green-fg">0</span>:<span class="ansi-green-fg">8</span>]]
+<span class="ansi-green-fg">      4</span> sw.head()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;info&#39; is not defined
 </pre></div></div>
@@ -2004,7 +2038,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[34]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> newdf = pd.concat((<span class="ansi-yellow-bg">gw</span>, sw), ignore_index=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> newdf = pd.concat((gw, sw), ignore_index=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
 <span class="ansi-green-fg">      2</span> newdf
 
 <span class="ansi-red-fg">NameError</span>: name &#39;gw&#39; is not defined
@@ -2220,7 +2254,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[36]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">df2</span>.head()
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2.head()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -2269,9 +2303,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[37]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> dfg0 = <span class="ansi-yellow-bg">df2</span>.groupby(by=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">mean</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">std</span><span class="ansi-yellow-fg">&#39;</span>])
-<span class="ansi-green-fg">      2</span> dfg1 = df_cimis.groupby(by=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">ETo (in)</span><span class="ansi-yellow-fg">&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">mean</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">std</span><span class="ansi-yellow-fg">&#39;</span>])
-<span class="ansi-green-fg">      3</span> dfg2 = df_cimis.groupby(by=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Precip (in)</span><span class="ansi-yellow-fg">&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">mean</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">std</span><span class="ansi-yellow-fg">&#39;</span>])
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> dfg0 = df2.groupby(by=[<span class="ansi-yellow-fg">&#34;year&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;mean&#39;</span>, <span class="ansi-yellow-fg">&#39;std&#39;</span>])
+<span class="ansi-green-fg">      2</span> dfg1 = df_cimis.groupby(by=[<span class="ansi-yellow-fg">&#34;year&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;ETo (in)&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;mean&#39;</span>, <span class="ansi-yellow-fg">&#39;std&#39;</span>])
+<span class="ansi-green-fg">      3</span> dfg2 = df_cimis.groupby(by=[<span class="ansi-yellow-fg">&#34;year&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;Precip (in)&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;mean&#39;</span>, <span class="ansi-yellow-fg">&#39;std&#39;</span>])
+<span class="ansi-green-fg">      4</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -2301,9 +2336,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[38]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_y_flow = <span class="ansi-yellow-bg">df2</span>.groupby(by=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">mean</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">std</span><span class="ansi-yellow-fg">&#39;</span>])
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_y_flow = df2.groupby(by=[<span class="ansi-yellow-fg">&#34;year&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;mean&#39;</span>, <span class="ansi-yellow-fg">&#39;std&#39;</span>])
+<span class="ansi-green-fg">      2</span>
 <span class="ansi-green-fg">      3</span> fig = plt.figure(figsize=(<span class="ansi-green-fg">12</span>,<span class="ansi-green-fg">4</span>))
-<span class="ansi-green-fg">      5</span> lower_ci = df_y_flow[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">mean</span><span class="ansi-yellow-fg">&#34;</span>] - <span class="ansi-green-fg">2</span> * df_y_flow[<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">std</span><span class="ansi-yellow-fg">&#39;</span>]
+<span class="ansi-green-fg">      4</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -2343,9 +2379,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[39]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> dfg0 = <span class="ansi-yellow-bg">df2</span>.groupby(by=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">mean</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">std</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">sum</span><span class="ansi-yellow-fg">&#39;</span>])
-<span class="ansi-green-fg">      2</span> dfg1 = df_cimis.groupby(by=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">ETo (in)</span><span class="ansi-yellow-fg">&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">mean</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">std</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">sum</span><span class="ansi-yellow-fg">&#39;</span>])
-<span class="ansi-green-fg">      3</span> dfg2 = df_cimis.groupby(by=[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Precip (in)</span><span class="ansi-yellow-fg">&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">mean</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">std</span><span class="ansi-yellow-fg">&#39;</span>, <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">sum</span><span class="ansi-yellow-fg">&#39;</span>])
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> dfg0 = df2.groupby(by=[<span class="ansi-yellow-fg">&#34;year&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;mean&#39;</span>, <span class="ansi-yellow-fg">&#39;std&#39;</span>, <span class="ansi-yellow-fg">&#39;sum&#39;</span>])
+<span class="ansi-green-fg">      2</span> dfg1 = df_cimis.groupby(by=[<span class="ansi-yellow-fg">&#34;year&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;ETo (in)&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;mean&#39;</span>, <span class="ansi-yellow-fg">&#39;std&#39;</span>, <span class="ansi-yellow-fg">&#39;sum&#39;</span>])
+<span class="ansi-green-fg">      3</span> dfg2 = df_cimis.groupby(by=[<span class="ansi-yellow-fg">&#34;year&#34;</span>], as_index=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)[<span class="ansi-yellow-fg">&#34;Precip (in)&#34;</span>].aggregate([<span class="ansi-yellow-fg">&#39;mean&#39;</span>, <span class="ansi-yellow-fg">&#39;std&#39;</span>, <span class="ansi-yellow-fg">&#39;sum&#39;</span>])
+<span class="ansi-green-fg">      4</span> dfm1 = pd.merge(dfg0, dfg1, on=[<span class="ansi-yellow-fg">&#34;year&#34;</span>], suffixes=(<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, <span class="ansi-yellow-fg">&#34;_et&#34;</span>))
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -2494,8 +2531,9 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[41]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> baseflow = baseflow_low_pass_filter(<span class="ansi-yellow-bg">df2</span>[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>].values, beta=<span class="ansi-green-fg">0.90</span>, T=<span class="ansi-green-fg">5</span>)
-<span class="ansi-green-fg">      2</span> df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_bf_af</span><span class="ansi-yellow-fg">&#34;</span>] = baseflow
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> baseflow = baseflow_low_pass_filter(df2[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>].values, beta=<span class="ansi-green-fg">0.90</span>, T=<span class="ansi-green-fg">5</span>)
+<span class="ansi-green-fg">      2</span> df2[<span class="ansi-yellow-fg">&#34;russian_bf_af&#34;</span>] = baseflow
+<span class="ansi-green-fg">      3</span>
 <span class="ansi-green-fg">      4</span> fig = plt.figure(figsize=(<span class="ansi-green-fg">15</span>, <span class="ansi-green-fg">10</span>))
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
@@ -2531,9 +2569,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[42]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_bf_af</span><span class="ansi-yellow-fg">&#34;</span>] = baseflow_low_pass_filter(<span class="ansi-yellow-bg">df2</span>[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>].values, beta=<span class="ansi-green-fg">0.9</span>, T=<span class="ansi-green-fg">5</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df2[<span class="ansi-yellow-fg">&#34;russian_bf_af&#34;</span>] = baseflow_low_pass_filter(df2[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>].values, beta=<span class="ansi-green-fg">0.9</span>, T=<span class="ansi-green-fg">5</span>)
 <span class="ansi-green-fg">      2</span> <span style="color: rgb(95,135,135)"># drop nan values prior to running decomposition</span>
-<span class="ansi-green-fg">      3</span> dfsm = df2[df2[<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">russian_bf_af</span><span class="ansi-yellow-fg">&#39;</span>].notna()]
+<span class="ansi-green-fg">      3</span> dfsm = df2[df2[<span class="ansi-yellow-fg">&#39;russian_bf_af&#39;</span>].notna()]
+<span class="ansi-green-fg">      4</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -2561,9 +2600,11 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[43]</span><span class="ansi-green-fg">, line 3</span>
 <span class="ansi-green-fg">      1</span> fig, ax = plt.subplots(figsize=(<span class="ansi-green-fg">8</span>, <span class="ansi-green-fg">8</span>))
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">3</span> ax = <span class="ansi-yellow-bg">df2</span>[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>].plot(ax=ax)
-<span class="ansi-green-fg">      4</span> ax.plot(decomposition.trend.index, decomposition.trend, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">r-</span><span class="ansi-yellow-fg">&#34;</span>, lw=<span class="ansi-green-fg">1.5</span>)
-<span class="ansi-green-fg">      5</span> ax.set_yscale(<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">log</span><span class="ansi-yellow-fg">&#39;</span>)
+<span class="ansi-green-fg">      2</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">3</span> ax = df2[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>].plot(ax=ax)
+<span class="ansi-green-fg">      4</span> ax.plot(decomposition.trend.index, decomposition.trend, <span class="ansi-yellow-fg">&#34;r-&#34;</span>, lw=<span class="ansi-green-fg">1.5</span>)
+<span class="ansi-green-fg">      5</span> ax.set_yscale(<span class="ansi-yellow-fg">&#39;log&#39;</span>)
+<span class="ansi-green-fg">      6</span> plt.savefig(<span class="ansi-yellow-fg">&#34;russian_river.png&#34;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -2614,8 +2655,9 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[44]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># add the decomposition trend to the dataframe to make plotting easy</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> df2[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">baseflow_trend</span><span class="ansi-yellow-fg">&#34;</span>] = <span class="ansi-yellow-bg">decomposition</span>.trend
-<span class="ansi-green-fg">      4</span> pdf_file = data_path / <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">all_years_russian.pdf</span><span class="ansi-yellow-fg">&#34;</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> df2[<span class="ansi-yellow-fg">&#34;baseflow_trend&#34;</span>] = decomposition.trend
+<span class="ansi-green-fg">      3</span>
+<span class="ansi-green-fg">      4</span> pdf_file = data_path / <span class="ansi-yellow-fg">&#34;all_years_russian.pdf&#34;</span>
 <span class="ansi-green-fg">      5</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> PdfPages(pdf_file) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> outpdf:
 
 <span class="ansi-red-fg">NameError</span>: name &#39;decomposition&#39; is not defined
@@ -2661,9 +2703,10 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[45]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df3 = <span class="ansi-yellow-bg">df2</span>.copy()
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df3 = df2.copy()
 <span class="ansi-green-fg">      2</span> <span style="color: rgb(95,135,135)"># Adding values</span>
-<span class="ansi-green-fg">      3</span> df3[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r</span><span class="ansi-yellow-fg">&#34;</span>] += <span class="ansi-green-fg">10000</span>
+<span class="ansi-green-fg">      3</span> df3[<span class="ansi-yellow-fg">&#34;russian_r&#34;</span>] += <span class="ansi-green-fg">10000</span>
+<span class="ansi-green-fg">      4</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div></div>
@@ -2689,7 +2732,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[46]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">df3</span>.iloc[<span class="ansi-green-fg">0</span>, <span class="ansi-green-fg">1</span>] = <span class="ansi-green-fg">999</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df3.iloc[<span class="ansi-green-fg">0</span>, <span class="ansi-green-fg">1</span>] = <span class="ansi-green-fg">999</span>
 <span class="ansi-green-fg">      2</span> df3.head()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df3&#39; is not defined
@@ -2716,7 +2759,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[47]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">df3</span>.loc[df3.index[<span class="ansi-green-fg">0</span>], <span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">russian_r</span><span class="ansi-yellow-fg">&#39;</span>] *= <span class="ansi-green-fg">100</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df3.loc[df3.index[<span class="ansi-green-fg">0</span>], <span class="ansi-yellow-fg">&#39;russian_r&#39;</span>] *= <span class="ansi-green-fg">100</span>
 <span class="ansi-green-fg">      2</span> df3.head()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df3&#39; is not defined
@@ -2747,8 +2790,8 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[48]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df3[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_cfd</span><span class="ansi-yellow-fg">&#34;</span>] = np.log10(<span class="ansi-yellow-bg">df3</span>[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_cfd</span><span class="ansi-yellow-fg">&#34;</span>])
-<span class="ansi-green-fg">      2</span> df3.loc[df3.index[<span class="ansi-green-fg">3</span>], <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">austin_c</span><span class="ansi-yellow-fg">&#34;</span>] = <span class="ansi-green-fg">0</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df3[<span class="ansi-yellow-fg">&#34;russian_r_cfd&#34;</span>] = np.log10(df3[<span class="ansi-yellow-fg">&#34;russian_r_cfd&#34;</span>])
+<span class="ansi-green-fg">      2</span> df3.loc[df3.index[<span class="ansi-green-fg">3</span>], <span class="ansi-yellow-fg">&#34;austin_c&#34;</span>] = <span class="ansi-green-fg">0</span>
 <span class="ansi-green-fg">      3</span> df3.head()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df3&#39; is not defined
@@ -2781,8 +2824,8 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[49]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_data = <span class="ansi-yellow-bg">df2</span>[[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">year</span><span class="ansi-yellow-fg">&#34;</span>]]
-<span class="ansi-green-fg">      2</span> df_data = df_data.rename(columns={<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">russian_r_af</span><span class="ansi-yellow-fg">&#34;</span>: <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Q</span><span class="ansi-yellow-fg">&#34;</span>})
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_data = df2[[<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>, <span class="ansi-yellow-fg">&#34;year&#34;</span>]]
+<span class="ansi-green-fg">      2</span> df_data = df_data.rename(columns={<span class="ansi-yellow-fg">&#34;russian_r_af&#34;</span>: <span class="ansi-yellow-fg">&#34;Q&#34;</span>})
 <span class="ansi-green-fg">      3</span> df_data.describe()
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df2&#39; is not defined
@@ -2807,9 +2850,9 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[50]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_data[<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">water_year</span><span class="ansi-yellow-fg">&#39;</span>] = <span class="ansi-yellow-bg">df_data</span>.index.shift(<span class="ansi-green-fg">30</span>+<span class="ansi-green-fg">31</span>+<span class="ansi-green-fg">31</span>,freq=<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">d</span><span class="ansi-yellow-fg">&#39;</span>).year
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_data[<span class="ansi-yellow-fg">&#39;water_year&#39;</span>] = df_data.index.shift(<span class="ansi-green-fg">30</span>+<span class="ansi-green-fg">31</span>+<span class="ansi-green-fg">31</span>,freq=<span class="ansi-yellow-fg">&#39;d&#39;</span>).year
 <span class="ansi-green-fg">      2</span> df_data.dropna(inplace=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
-<span class="ansi-green-fg">      3</span> df_data[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">detrended</span><span class="ansi-yellow-fg">&#34;</span>] = detrend(df_data.Q.values)
+<span class="ansi-green-fg">      3</span> df_data[<span class="ansi-yellow-fg">&#34;detrended&#34;</span>] = detrend(df_data.Q.values)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df_data&#39; is not defined
 </pre></div></div>
@@ -2845,8 +2888,9 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[51]</span><span class="ansi-green-fg">, line 3</span>
 <span class="ansi-green-fg">      1</span> fig = plt.figure(figsize=(<span class="ansi-green-fg">12</span>,<span class="ansi-green-fg">6</span>))
 <span class="ansi-green-fg">      2</span> ax = plt.subplot(<span class="ansi-green-fg">3</span>,<span class="ansi-green-fg">1</span>,<span class="ansi-green-fg">1</span>)
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">3</span> plt.plot(<span class="ansi-yellow-bg">df_data</span>.detrended)
-<span class="ansi-green-fg">      4</span> plt.title(<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">detrended signal</span><span class="ansi-yellow-fg">&#39;</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">3</span> plt.plot(df_data.detrended)
+<span class="ansi-green-fg">      4</span> plt.title(<span class="ansi-yellow-fg">&#39;detrended signal&#39;</span>)
+<span class="ansi-green-fg">      5</span>
 <span class="ansi-green-fg">      6</span> plt.subplot(<span class="ansi-green-fg">3</span>,<span class="ansi-green-fg">1</span>,<span class="ansi-green-fg">2</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df_data&#39; is not defined
@@ -2921,7 +2965,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[53]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> fft_and_plot(<span class="ansi-yellow-bg">df_data</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> fft_and_plot(df_data)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df_data&#39; is not defined
 </pre></div></div>
@@ -2947,7 +2991,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[54]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> fft_and_plot(<span class="ansi-yellow-bg">df_data</span>[df_data.index.year &lt; <span class="ansi-green-fg">1954</span>])
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> fft_and_plot(df_data[df_data.index.year &lt; <span class="ansi-green-fg">1954</span>])
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df_data&#39; is not defined
 </pre></div></div>
@@ -2972,7 +3016,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[55]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> fft_and_plot(<span class="ansi-yellow-bg">df_data</span>[(df_data.index.year &gt; <span class="ansi-green-fg">1954</span>)])
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> fft_and_plot(df_data[(df_data.index.year &gt; <span class="ansi-green-fg">1954</span>)])
 
 <span class="ansi-red-fg">NameError</span>: name &#39;df_data&#39; is not defined
 </pre></div></div>
@@ -2994,8 +3038,8 @@ During handling of the above exception, another exception occurred:
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022-2025, USGS Python for Hydrology instructors.
-      <span class="lastupdated">Last updated on Sep 25, 2025.
+    <p>&#169; Copyright 2022-2026, USGS Python for Hydrology instructors.
+      <span class="lastupdated">Last updated on Jun 18, 2026.
       </span></p>
   </div>
 
